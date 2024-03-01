@@ -35,11 +35,11 @@ export function Vacantes() {
   return (
     <>
       <Header nombreDelGrupo={"Empresa"} />
-      <Stack mt="2rem" ml="2rem">
+      <Stack mt="2rem" p={5}>
         <Heading as="h2" size="2xl">
           Vacantes
         </Heading>
-        <Text fontSize="xl">
+        <Text fontSize="xl" textAlign={"justify"}>
           En esta sección podrás administrar tus vacantes
         </Text>
         <Grid>

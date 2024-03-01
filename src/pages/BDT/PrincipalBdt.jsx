@@ -77,15 +77,15 @@ export function PrincipalBdt() {
           bg="transparent"
         >
           <Stack direction="column" pb="9" pt="5">
-            <Text className="Texto">
+            <Text className="Texto" textAlign={"justify"}>
               ¡Bienvenido(a) a nuestra plataforma de empleo!
             </Text>
-            <Text className="Texto">
+            <Text className="Texto" textAlign={"justify"}>
               Aquí, te conectamos con las empresas más prestigiosas en busca de
               talento como el tuyo.
             </Text>
-            <Text fontWeight="bold" fontSize="2xl">
-              Regsitrate y explora las vacantes.
+            <Text fontWeight="bold" fontSize="2xl" textAlign={"justify"}>
+              Registrate y explora las vacantes.
             </Text>
             <ButtonGroup gap="4">
               <Link to="/login-bdt">

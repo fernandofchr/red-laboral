@@ -18,9 +18,8 @@ export function SinVacantes({ children, hasButton = true }) {
       alignItems="center"
       flexDirection="column"
       mt="5rem"
-      mb="5rem"
+      mb="7rem"
       gap="1rem"
-      w="20rem"
     >
       <Box>
         <Image

@@ -31,6 +31,7 @@ import { AvisoEmpresa } from './components/AvisosTerminos/AvisoEmpresa'
 import { TerminosBdt } from './components/AvisosTerminos/TerminosBdt'
 import { TerminosEmpresa } from './components/AvisosTerminos/TerminosEmpresa'
 import { MapaSitio } from './components/MapaSitio'
+import { PrincipalEmpresa } from './pages/Empresa/PrincipalEmpresa'
 
 Amplify.configure(awsExports)
 
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
   {
     path: '/login-bdt',
     element: <LoginBdt />
+  },
+  {
+    path: '/inicioempresa',
+    element: <PrincipalEmpresa />
   },
   {
     path: '/iniciop-bdt',

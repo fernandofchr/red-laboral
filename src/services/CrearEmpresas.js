@@ -10,7 +10,7 @@ export const guardarEmpresaEnDataStore = async ({ datosEmpresa, email }) => {
     rfc,
     numero: parseInt(numero),
     email,
-    telefono: telefonoNumero,
+    telefono: parseInt(telefonoNumero),
     municipio,
     codigoPostal: parseInt(codigoPostal),
     colonia,

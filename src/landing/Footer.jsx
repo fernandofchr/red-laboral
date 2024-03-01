@@ -53,9 +53,9 @@ export function Footer() {
           </Link>
           <Link
             color="#fff"
-            href="/login-empresa"
+            href="/inicioempresa"
             _hover={{ color: "#79f0f7" }}
-            style={isActive("/login-empresa") ? { color: "#79f0f7" } : null}
+            style={isActive("/inicioempresa") ? { color: "#79f0f7" } : null}
           >
             Empresas
           </Link>

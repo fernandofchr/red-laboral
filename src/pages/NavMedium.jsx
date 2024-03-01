@@ -5,6 +5,7 @@ import {
   Text,
   CardBody,
   Card,
+  Link,
   CardHeader,
   Image,
   Stack,
@@ -295,15 +296,17 @@ export function NavMedium() {
         textAlign="center"
         mb={10}
       >
-        <Button
-          width={"10rem"}
-          height={"3rem"}
-          colorScheme="blue"
-          fontSize={27}
-          color={"white"}
-        >
-          Comenzar
-        </Button>
+        <Link to="login-bdt">
+          <Button
+            width={"10rem"}
+            height={"3rem"}
+            colorScheme="blue"
+            fontSize={27}
+            color={"white"}
+          >
+            Comenzar
+          </Button>
+        </Link>
       </Box>
     </Box>
   );

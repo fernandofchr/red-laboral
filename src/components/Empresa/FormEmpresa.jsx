@@ -9,12 +9,28 @@ import { useRegister } from '../../hooks/useRegister'
 import { Header } from '../Header'
 import { Footer } from '../../landing/Footer'
 import { basicAlert } from '../../utilities/Alerts'
+import { useState } from 'react'
+import Swal from 'sweetalert2';
+
 
 export function FormEmpresa({ email }) {
   const { datosEmpresa, somePropertyIsNull } = useRegister()
+  const [ captchaValue, setCaptchaValue ] = useState(null)
+  
 
   const handleSubmitForm = e => {
-    e.preventDefault()
+    e.preventDefault(); // Previene el comportamiento por defecto del formulario
+    
+    if (!captchaValue) {
+      // Si no se ha verificado el reCAPTCHA, muestra un mensaje de advertencia
+      Swal.fire({
+        title: 'Captcha no verificado',
+        text: 'Por favor, verifica que no eres un robot.',
+        icon: 'warning'
+      });
+      return; // Evita enviar el formulario si el reCAPTCHA no está verificado
+    }
+
     if (somePropertyIsNull(datosEmpresa)) {
       basicAlert({ title: 'Error al guardar la empresa', icon: 'error', text: 'No puede registrar empresas con campos vacíos.' })
       return
@@ -22,6 +38,8 @@ export function FormEmpresa({ email }) {
     guardarEmpresaEnDataStore({ datosEmpresa, email })
     console.log(datosEmpresa)
   }
+
+
 
   return (
     <>
@@ -53,7 +71,7 @@ export function FormEmpresa({ email }) {
         </FormControl>
       </Flex>
 
-      <BotonesForm onClick={handleSubmitForm} />
+      <BotonesForm onClick={handleSubmitForm} setCaptchaValue={setCaptchaValue} />
 
       <Footer />
     </>

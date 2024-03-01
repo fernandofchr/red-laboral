@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 
 export function PrincipalBdt() {
   const isSmallScreen = window.innerWidth <= 768;
+  console.log("Estamos ","joya");
 
   return (
     <Box>

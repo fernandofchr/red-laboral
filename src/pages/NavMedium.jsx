@@ -11,7 +11,7 @@ import {
   Stack,
   Divider,
   Button,
-  Input,
+  ButtonGroup,
 } from "@chakra-ui/react";
 import Buscador from "../components/Buscador";
 
@@ -289,25 +289,25 @@ export function NavMedium() {
           </CardBody>
         </Card>
       </SimpleGrid>
-      <Box
+      <ButtonGroup
+        gap="4"
         display="flex"
         flexDirection="column"
         alignItems="center"
         textAlign="center"
         mb={10}
       >
-        <Link to="login-bdt">
+        <Link to="/login-bdt">
           <Button
-            width={"10rem"}
-            height={"3rem"}
-            colorScheme="blue"
-            fontSize={27}
-            color={"white"}
+            bg="#181c24"
+            color="white"
+            _hover={{ bg: "white", color: "#181c24" }}
+            fontSize="20px"
           >
             Comenzar
           </Button>
         </Link>
-      </Box>
+      </ButtonGroup>
     </Box>
   );
 }

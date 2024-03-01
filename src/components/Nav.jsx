@@ -91,17 +91,33 @@ export function Nav({ nombreDelGrupo = "Empresa" }) {
             {dataSession.session && nombreGrupo === "Empresa" && (
               <ButtonGroup>
                 <RouterLink to="/inicio-empresa">
-                  <Text color="#fff" _hover={{ color: "#79f0f7" }}>
+                  <Text
+                    color="#fff"
+                    _hover={{ color: "#79f0f7" }}
+                    style={
+                      isActive("/inicio-empresa") ? { color: "#79f0f7" } : null
+                    }
+                  >
                     Inicio
                   </Text>
                 </RouterLink>
                 <RouterLink to="/vacantes">
-                  <Text color="#fff" _hover={{ color: "#79f0f7" }}>
+                  <Text
+                    color="#fff"
+                    _hover={{ color: "#79f0f7" }}
+                    style={isActive("/vacantes") ? { color: "#79f0f7" } : null}
+                  >
                     Vacantes
                   </Text>
                 </RouterLink>
                 <RouterLink to="/postulados">
-                  <Text color="#fff" _hover={{ color: "#79f0f7" }}>
+                  <Text
+                    color="#fff"
+                    _hover={{ color: "#79f0f7" }}
+                    style={
+                      isActive("/postulados") ? { color: "#79f0f7" } : null
+                    }
+                  >
                     Postulados
                   </Text>
                 </RouterLink>

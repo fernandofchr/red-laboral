@@ -5,7 +5,6 @@ import {
   Text,
   CardBody,
   Card,
-  Link,
   CardHeader,
   Image,
   Stack,
@@ -13,6 +12,7 @@ import {
   Button,
   ButtonGroup,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import Buscador from "../components/Buscador";
 
 export function NavMedium() {

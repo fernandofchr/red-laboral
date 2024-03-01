@@ -9,7 +9,6 @@ import {
   MenuList,
   MenuItem,
   MenuDivider,
-  Link,
   Image,
   Spacer,
   useColorModeValue,
@@ -26,6 +25,7 @@ import logo from "../../../img/logo.png";
 import { useNavigate } from "react-router-dom";
 import { useSession } from "../../../hooks/useSession";
 import { DATA_SESSION_STATE_INITIAL } from "../../../constants/EstadosIniciales";
+import { Link } from "react-router-dom";
 
 function NavegadorBDT({ setSession }) {
   const { getDataSessionBDT, setDataSession, dataSession } =

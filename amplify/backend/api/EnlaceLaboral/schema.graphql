@@ -134,5 +134,4 @@ type Styles @model @auth(rules: [{allow: public}, {allow: private}]) {
   cardHab: String
   cardInfo: String
   bdtID: ID! @index(name: "byBDT")
-}
- 
+} 

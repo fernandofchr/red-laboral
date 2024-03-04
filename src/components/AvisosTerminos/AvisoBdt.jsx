@@ -9,12 +9,14 @@ import {
 } from "@chakra-ui/react";
 import { Footer } from "../../landing/Footer";
 import { Header } from "../Header";
+import BasicBreadcrumbs from "../../landing/Breadcrumbs";
 
 export function AvisoBdt() {
   return (
     <Box>
       <Header />
       <Box p={1} fontSize="lg">
+      <BasicBreadcrumbs/>
         <Heading
           as="h1"
           display="flex"

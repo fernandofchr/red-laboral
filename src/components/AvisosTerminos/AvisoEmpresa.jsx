@@ -10,11 +10,13 @@ import {
 } from "@chakra-ui/react";
 import { Header } from "../Header";
 import { Footer } from "../../landing/Footer";
+import BasicBreadcrumbs from "../../landing/Breadcrumbs";
 
 export function AvisoEmpresa() {
   return (
     <Box>
       <Header />
+      <BasicBreadcrumbs/>
       <Box p={1} fontSize="lg">
         <Heading
           as="h1"

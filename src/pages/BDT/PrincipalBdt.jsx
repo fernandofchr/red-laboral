@@ -13,12 +13,14 @@ import { Footer } from "../../landing/Footer";
 import { Header } from "../../components/Header";
 import { Link } from "react-router-dom";
 
+import BasicBreadcrumbs from "../../landing/Breadcrumbs";
+
 export function PrincipalBdt() {
   const isSmallScreen = window.innerWidth <= 768;
-  console.log("Estamos ","joya");
 
   return (
     <Box>
+      
       <style>
         {`
       @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
@@ -59,6 +61,7 @@ export function PrincipalBdt() {
           alignItems="center"
           justifyContent="center"
         >
+          <BasicBreadcrumbs/>
           <Stack direction="row">
             <Image
               p="5"

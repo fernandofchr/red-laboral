@@ -9,11 +9,13 @@ import {
 } from "@chakra-ui/react";
 import { Header } from "../Header";
 import { Footer } from "../../landing/Footer";
+import BasicBreadcrumbs from "../../landing/Breadcrumbs";
 
 export function TerminosEmpresa() {
   return (
     <Box>
       <Header />
+      <BasicBreadcrumbs/>
       <Box p={1} fontSize="lg">
         <VStack align="stretch" spacing={8} p={10}>
           <Heading

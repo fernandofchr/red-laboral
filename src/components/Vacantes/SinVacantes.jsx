@@ -9,6 +9,7 @@ import {
 import logosinfondo from "../../img/logo-sinfondo.png";
 import logo from "../../img/logo-blanco.png";
 import { ButtonVacante } from "../ButtonVacante";
+import { Link } from "react-router-dom";
 
 export function SinVacantes({ children, hasButton = true }) {
   const { colorMode } = useColorMode();
@@ -32,7 +33,11 @@ export function SinVacantes({ children, hasButton = true }) {
       <Heading fontWeight={400} as="h3" size="md">
         {children}
       </Heading>
-      {hasButton && <ButtonVacante>Crear una vacante</ButtonVacante>}
+      {hasButton && (
+        <Link to="/registro-vacante">
+          <ButtonVacante>Crear una vacante</ButtonVacante>
+        </Link>
+      )}
     </Flex>
   );
 }

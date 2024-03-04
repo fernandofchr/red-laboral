@@ -12,10 +12,11 @@ import {
 import { Footer } from "../../landing/Footer";
 import { Header } from "../../components/Header";
 import { Link } from "react-router-dom";
+import Buscador from "../../components/Buscador";
 
 export function PrincipalBdt() {
   const isSmallScreen = window.innerWidth <= 768;
-  console.log("Estamos ","joya");
+  console.log("Estamos ", "joya");
 
   return (
     <Box>
@@ -33,23 +34,9 @@ export function PrincipalBdt() {
     `}
       </style>
       <Header />
-      {/** <Flex
-        p={5}
-        justify="flex-end"
-        gap={4}
-        direction={{ base: "column", md: "row" }}
-      >
-        <Link to="/login-bdt">
-          <Button
-            bg="#181c24"
-            color="white"
-            _hover={{ bg: "white", color: "#181c24" }}
-            fontSize="20px"
-          >
-            Registrarse
-          </Button>
-        </Link>
-      </Flex> */}
+      <Box p={5}>
+        <Buscador />
+      </Box>
       <Flex flexDirection={{ base: "column", md: "row" }} flexWrap="wrap" p="5">
         <Box
           flex={{ base: "1", md: "1/2" }}
@@ -64,7 +51,7 @@ export function PrincipalBdt() {
               p="5"
               borderRadius="5rem"
               objectFit="cover"
-              src="https://media.istockphoto.com/id/1428698219/es/foto/feliz-joven-empresaria-hablando-por-tel%C3%A9fono-en-un-almac%C3%A9n.jpg?s=612x612&w=0&k=20&c=jbrDrttkbVtpE1NrPirmqDv10tCv0AkolMs4HrYN0Zs="
+              src="https://media.istockphoto.com/id/669887538/es/foto/colegas-con-tablet-pc-en-f%C3%A1brica-textil.jpg?s=612x612&w=0&k=20&c=TJoVUdAeDKg0c_-4aCe6iO9YP9OBiU59TyMYlcnyz_E="
               alt="Dan Abramov"
             />
           </Stack>
@@ -94,9 +81,9 @@ export function PrincipalBdt() {
                   bg="#181c24"
                   color="white"
                   _hover={{ bg: "white", color: "#181c24" }}
-                  fontSize="20px"
+                  fontSize="25px"
                 >
-                  Registrarse
+                  Registrate
                 </Button>
               </Link>
             </ButtonGroup>

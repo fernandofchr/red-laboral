@@ -62,11 +62,10 @@ function NavegadorBDT({ setSession }) {
     try {
       await Auth.signOut({ global: true });
       await DataStore.clear();
-      localStorage.clear();
-      sessionStorage.clear();
       setDataSession(DATA_SESSION_STATE_INITIAL);
-      setSession(false);
-      navigate("/");
+      sessionStorage.clear();
+      localStorage.clear();
+      await navigate("/");
     } catch (error) {
       console.log("error signing out: ", error);
     }

@@ -10,10 +10,13 @@ import {
 import { Footer } from "../../landing/Footer";
 import { Header } from "../Header";
 
+import BasicBreadcrumbs from "../../landing/Breadcrumbs";
+
 export function TerminosBdt() {
   return (
     <Box>
       <Header />
+      <BasicBreadcrumbs></BasicBreadcrumbs>
       <Box p={1} fontSize="lg">
         <VStack align="stretch" spacing={8} p={10}>
           <Heading

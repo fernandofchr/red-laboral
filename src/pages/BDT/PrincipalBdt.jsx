@@ -14,6 +14,8 @@ import { Header } from "../../components/Header";
 import { Link } from "react-router-dom";
 import Buscador from "../../components/Buscador";
 
+import BasicBreadcrumbs from "../../landing/Breadcrumbs";
+
 export function PrincipalBdt() {
   const isSmallScreen = window.innerWidth <= 768;
   console.log("Estamos ", "joya");
@@ -46,6 +48,7 @@ export function PrincipalBdt() {
           alignItems="center"
           justifyContent="center"
         >
+          <BasicBreadcrumbs />
           <Stack direction="row">
             <Image
               p="5"

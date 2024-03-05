@@ -17,7 +17,7 @@ export function TerminosBdt() {
     <Box>
       <Header />
       <BasicBreadcrumbs></BasicBreadcrumbs>
-      <Box p={1} fontSize="lg">
+      <Box fontSize="lg">
         <VStack align="stretch" spacing={8} p={10}>
           <Heading
             as="h1"

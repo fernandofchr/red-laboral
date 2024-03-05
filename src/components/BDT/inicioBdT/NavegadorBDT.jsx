@@ -26,6 +26,7 @@ import { useNavigate } from "react-router-dom";
 import { useSession } from "../../../hooks/useSession";
 import { DATA_SESSION_STATE_INITIAL } from "../../../constants/EstadosIniciales";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function NavegadorBDT({ setSession }) {
   const { getDataSessionBDT, setDataSession, dataSession } =
@@ -33,6 +34,7 @@ function NavegadorBDT({ setSession }) {
   const { colorMode, toggleColorMode } = useColorMode();
   const navigate = useNavigate();
   const [bde, setBde] = useState("Usuario");
+  const location = useLocation();
 
   useEffect(() => {
     if (dataSession.session) return;

@@ -7,6 +7,7 @@ import { DataStore } from '@aws-amplify/datastore'
 import { BDT } from '../../models'
 import NavegadorBDT from '../../components/BDT/inicioBdT/NavegadorBDT'
 import Loading2 from '../../components/Loading2'
+import BasicBreadcrumbs from '../../landing/Breadcrumbs'
 
 function PerfilBdT() {
   const [nombreGrupo, setNombreGrupo] = useState('')
@@ -53,6 +54,7 @@ function PerfilBdT() {
               {userData !== '' && userData !== undefined ? (
                 <>
                   <NavegadorBDT setSession={setSession} />
+                  <BasicBreadcrumbs/>
                   <ComponentePerfilBdT
                     email={email}
                     userID={user}

@@ -16,8 +16,10 @@ import { useManageVacantes } from "../../hooks/useManageVacantes";
 import { Footer } from "../../landing/Footer";
 import { useSession } from "../../hooks/useSession";
 import BasicBreadcrumbs from "../../landing/Breadcrumbs";
+import { useNavigate } from "react-router-dom";
 
 export function Vacantes() {
+  const navigate= useNavigate()
   const {
     listVacantes,
     vacantesVisibles,
@@ -32,6 +34,12 @@ export function Vacantes() {
     if (isVacanteVisible) listVacantes({ emailEmpresa: dataSession.email });
     else listVacantesNoVisibles({ emailEmpresa: dataSession.email });
   }, []);
+  
+  useEffect(() => {
+    if (dataSession == 'trabajador') {
+      navigate('/inicio-bdt');
+    }
+  }, [dataSession]);
 
   return (
     <>

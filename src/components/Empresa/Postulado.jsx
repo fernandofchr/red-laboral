@@ -54,7 +54,7 @@ export function Postulado({ postulados }) {
             return (
               <Card
                 onClick={() => handleClickOpenVacante(postulado)}
-                borderColor="transparent transparent transparent #ea754b"
+                borderColor="transparent transparent transparent #79f0f7"
                 borderWidth="0.2rem"
                 boxShadow="xl"
                 cursor="pointer"

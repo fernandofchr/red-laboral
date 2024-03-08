@@ -14,11 +14,14 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import Buscador from "../components/Buscador";
+import ReactPlayer from "react-player";
+import BasicBreadcrumbs from "../landing/Breadcrumbs";
 
 export function NavMedium() {
   return (
     <Box>
       <Box p={5}>
+        <BasicBreadcrumbs />
         <Buscador />
       </Box>
       <SimpleGrid
@@ -295,10 +298,10 @@ export function NavMedium() {
         flexDirection="column"
         alignItems="center"
         textAlign="center"
-        mb={10}
       >
         <Link to="/login-bdt">
           <Button
+            mt={4}
             bg="#181c24"
             color="white"
             _hover={{ bg: "white", color: "#181c24" }}
@@ -308,6 +311,25 @@ export function NavMedium() {
           </Button>
         </Link>
       </ButtonGroup>
+      <Box padding="9">
+        <Divider />
+      </Box>
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        mb={8}
+        pt={4}
+      >
+        <ReactPlayer
+          url="https://media.istockphoto.com/id/1316272738/es/v%C3%ADdeo/los-socios-comerciales-de-big-city-usan-tablet-computer-en-crowded-street-visualizaci%C3%B3n-del.mp4?s=mp4-640x640-is&k=20&c=ncSn5NsXgTi8URohEKCk9i8vmLdaxUCPpFEBfqxG94s="
+          title="YouTube video player"
+          controls
+          loop
+          width="80%"
+          height="50%"
+        ></ReactPlayer>
+      </Box>
     </Box>
   );
 }

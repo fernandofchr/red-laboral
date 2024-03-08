@@ -59,7 +59,7 @@ export function Filtros({ filtros, setFiltros }) {
         >
           <FormLabel>Municipio</FormLabel>
           <Select
-            focusBorderColor="#ea754b"
+            focusBorderColor="#79f0f7"
             name="municipio"
             value={filtros.municipio}
             onChange={handleChangeFiltros}
@@ -80,7 +80,7 @@ export function Filtros({ filtros, setFiltros }) {
           <FormLabel>Área</FormLabel>
           <Select
             name="area"
-            focusBorderColor="#ea754b"
+            focusBorderColor="#79f0f7"
             onChange={handleChangeFiltros}
             value={filtros.area}
           >
@@ -99,7 +99,7 @@ export function Filtros({ filtros, setFiltros }) {
         >
           <FormLabel>Salario Mínimo</FormLabel>
           <NumberInput
-            focusBorderColor="#ea754b"
+            focusBorderColor="#79f0f7"
             defaultValue={0}
             name={"salarioMin"}
             min={0}
@@ -124,7 +124,7 @@ export function Filtros({ filtros, setFiltros }) {
         >
           <FormLabel>Salario Máximo</FormLabel>
           <NumberInput
-            focusBorderColor="#ea754b"
+            focusBorderColor="#79f0f7"
             defaultValue={100000}
             min={0}
             max={100000}
@@ -144,9 +144,9 @@ export function Filtros({ filtros, setFiltros }) {
 
       <ButtonGroup mt="2rem" spacing="6">
         <Button
-          color="white"
-          bg="#ea754b"
-          _hover={{ bg: "#ff964f" }}
+          color="black"
+          bg="#79f0f7"
+          _hover={{ bg: "#79f0f7" }}
           onClick={handleClickCleanFilter}
         >
           Limpiar filtros

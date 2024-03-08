@@ -31,7 +31,7 @@ export function VacanteDatos() {
   return (
     <Box>
       <Header nombreDelGrupo={"Empresa"} />
-      <BasicBreadcrumbs/>
+      <BasicBreadcrumbs />
       <Flex
         mx={{ base: "2rem", sm: "4rem", md: "8rem" }}
         mt="2rem"
@@ -53,7 +53,7 @@ export function VacanteDatos() {
           <CardBody>
             <Stack divider={<StackDivider />} spacing="4">
               <Box>
-                <Heading color="#ea754b" as="h3" size="md">
+                <Heading color="#79f0f7" as="h3" size="md">
                   Detalles de la vacante
                 </Heading>
                 <Grid
@@ -93,7 +93,7 @@ export function VacanteDatos() {
                 </Grid>
               </Box>
               <Box>
-                <Heading color="#ea754b" as="h3" size="md">
+                <Heading color="#79f0f7" as="h3" size="md">
                   Requisitos
                 </Heading>
                 <Grid

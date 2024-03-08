@@ -16,9 +16,13 @@ export function TerminosBdt() {
   return (
     <Box>
       <Header />
-      <BasicBreadcrumbs></BasicBreadcrumbs>
+      <Box p={5}>
+        <Box p={3}>
+          <BasicBreadcrumbs />
+        </Box>
+      </Box>
       <Box fontSize="lg">
-        <VStack align="stretch" spacing={8} p={10}>
+        <VStack align="stretch" spacing={8} p={10} pt={-10}>
           <Heading
             as="h1"
             size={{ base: "lg", md: "xl", xs: "sm" }}

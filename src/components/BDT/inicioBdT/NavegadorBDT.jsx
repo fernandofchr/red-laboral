@@ -100,7 +100,11 @@ function NavegadorBDT({ setSession }) {
             <Link
               to="/inicio-bdt/buscar-empleo"
               _hover={{ color: "#79f0f7" }}
-              style={isActive("/inicio-bdt/buscar-empleo") ? { color: "#79f0f7" } : null}
+              style={
+                isActive("/inicio-bdt/buscar-empleo")
+                  ? { color: "#79f0f7" }
+                  : null
+              }
             >
               Buscar empleo
             </Link>
@@ -129,11 +133,15 @@ function NavegadorBDT({ setSession }) {
               <MenuItem
                 color="#fff"
                 to="/inicio-bdt"
-                _hover={{ color: "#ea754b" }}
+                _hover={{ color: "#79f0f7" }}
               >
                 Inicio
               </MenuItem>
-              <MenuItem as={RouterLink} to="/inicio-bdt/buscar-empleo" color="#fff">
+              <MenuItem
+                as={RouterLink}
+                to="/inicio-bdt/buscar-empleo"
+                color="#fff"
+              >
                 Buscar empleo
               </MenuItem>
               <MenuItem

@@ -15,8 +15,12 @@ export function AvisoBdt() {
   return (
     <Box>
       <Header />
-      <Box p={1} fontSize="lg">
-      <BasicBreadcrumbs/>
+      <Box p={5}>
+        <Box p={3}>
+          <BasicBreadcrumbs />
+        </Box>
+      </Box>
+      <Box p={1} fontSize="lg" pt={-10}>
         <Heading
           as="h1"
           display="flex"
@@ -24,7 +28,6 @@ export function AvisoBdt() {
           alignContent={"center"}
           alignItems={"center"}
           size="lg"
-          mt={5}
         >
           Aviso de privacidad
         </Heading>

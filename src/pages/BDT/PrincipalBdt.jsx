@@ -36,8 +36,9 @@ export function PrincipalBdt() {
     `}
       </style>
       <Header />
-        <BasicBreadcrumbs />
       <Box p={5}>
+        <BasicBreadcrumbs />
+
         <Buscador />
       </Box>
       <Flex flexDirection={{ base: "column", md: "row" }} flexWrap="wrap" p="5">

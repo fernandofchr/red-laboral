@@ -20,12 +20,12 @@ import BasicBreadcrumbs from "../landing/Breadcrumbs";
 export function NavMedium() {
   return (
     <Box>
-      <Box p={5}>
+      <Box p={1}>
         <BasicBreadcrumbs />
         <Buscador />
       </Box>
       <SimpleGrid
-        p={5}
+        p={1}
         gap={4}
         templateColumns={{
           base: "repeat(1, 1fr)",

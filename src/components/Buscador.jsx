@@ -6,12 +6,15 @@ import {
   InputRightElement,
   List,
   ListItem,
+  IconButton,
 } from "@chakra-ui/react";
+import { SearchIcon } from "@chakra-ui/icons"; // Asegúrate de tener este ícono importado
 import { useNavigate } from "react-router-dom";
 
 const Buscador = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredOptions, setFilteredOptions] = useState([]);
+  const [isOpen, setIsOpen] = useState(false); // Estado para controlar la visibilidad del buscador
   const navigate = useNavigate();
 
   // Opciones de búsqueda predeterminadas
@@ -64,36 +67,59 @@ const Buscador = () => {
     }
   };
 
+  const toggleSearch = () => setIsOpen(!isOpen); // Función para mostrar/ocultar el buscador
+
   return (
-    <Box p={2}>
-      <InputGroup>
-        <Input
-          fontSize={30}
-          placeholder="Buscador"
-          value={searchTerm}
-          onChange={handleInputChange}
-          onKeyPress={handleKeyPress}
-        />
-        <InputRightElement width="4.5rem" />
-      </InputGroup>
-      {filteredOptions.length > 0 && (
-        <List
-          spacing={2}
-          mt={2}
-          style={{ maxHeight: "200px", overflowY: "auto" }}
+    <>
+      <IconButton
+        icon={<SearchIcon />}
+        onClick={toggleSearch}
+        position="fixed"
+        bottom="20px"
+        right="20px"
+        zIndex="99"
+        size="lg"
+        colorScheme="teal"
+      />
+      {isOpen && (
+        <Box
+          p={2}
+          right="20px"
+          zIndex="100"
+          bgColor="tranparent"
+          boxShadow="lg"
+          borderRadius="md"
         >
-          {filteredOptions.map((option, index) => (
-            <ListItem
-              key={index}
-              cursor="pointer"
-              onClick={() => executeSearch(option)}
+          <InputGroup>
+            <Input
+              fontSize={30}
+              placeholder="Buscador"
+              value={searchTerm}
+              onChange={handleInputChange}
+              onKeyPress={handleKeyPress}
+            />
+            <InputRightElement width="4.5rem" />
+          </InputGroup>
+          {filteredOptions.length > 0 && (
+            <List
+              spacing={2}
+              mt={2}
+              style={{ maxHeight: "200px", overflowY: "auto" }}
             >
-              {option}
-            </ListItem>
-          ))}
-        </List>
+              {filteredOptions.map((option, index) => (
+                <ListItem
+                  key={index}
+                  cursor="pointer"
+                  onClick={() => executeSearch(option)}
+                >
+                  {option}
+                </ListItem>
+              ))}
+            </List>
+          )}
+        </Box>
       )}
-    </Box>
+    </>
   );
 };
 

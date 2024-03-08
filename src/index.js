@@ -23,6 +23,7 @@ import { VacanteDatos } from './pages/Vacantes/VacanteDatos'
 import { DataVacanteProvider } from './context/DataVacanteContext'
 import { FormVacanteEdit } from './pages/FormVacanteEdit'
 import Error from './components/Error'
+import ErrorIniciarSesion from './components/ErrorIniciarSesion'
 import { BuscarEmpleo } from './pages/BDT/BuscarEmpleo'
 import { OportunidadesLaborales } from './pages/BDT/OportunidadesLaborales'
 import { VacantesPostulados } from './pages/Empresa/VacantesPostulados'
@@ -139,10 +140,14 @@ const router = createBrowserRouter([
   {
     path: '/mapa-sitio',
     element: <MapaSitio />
-  }, ,
+  },
   {
     path: '/error',
     element: <Error />
+  },
+  {
+    path: '/error-sesion',
+    element: <ErrorIniciarSesion />
   },
   {
     path: '/*',

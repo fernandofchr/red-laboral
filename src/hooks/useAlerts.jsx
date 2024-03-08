@@ -28,7 +28,7 @@ export function useAlerts() {
       if (result.isConfirmed) {
         deleteVacante(id)
         Swal.fire('Eliminada', 'Tu vacante ha sido eliminada.', 'success')
-        navigate('/vacantes')
+        navigate('/inicio-empresa/vacantes')
       }
     })
   }
@@ -48,7 +48,7 @@ export function useAlerts() {
         updateStatusVacante({ id, visible })
         Swal.fire('Dada de baja', 'Tu vacante ha sido dada de baja.', 'success')
         setTimeout(() => {
-          navigate('/vacantes')
+          navigate('/inicio-empresa/vacantes')
         }, 1000)
       }
     })
@@ -69,7 +69,7 @@ export function useAlerts() {
         updateStatusVacante({ id, visible })
         Swal.fire('Dada de alta', 'Tu vacante ha sido dada de alta.', 'success')
         setTimeout(() => {
-          navigate('/vacantes')
+          navigate('/inicio-empresa/vacantes')
         }, 1000)
       }
     })
@@ -82,7 +82,7 @@ export function useAlerts() {
       text: 'La vacante ha sido actualizada'
     }).then(result => {
       if (result.isConfirmed) {
-        navigate(`/vacantes/vacante/${id}`)
+        navigate(`/inicio-empresa/vacantes/${id}`)
       }
     })
   }

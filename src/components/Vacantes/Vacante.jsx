@@ -20,7 +20,7 @@ export function Vacante({ vacantes }) {
   const navigate = useNavigate();
 
   const handleClick = (vacante) => {
-    navigate(`/vacantes/vacante/${vacante.id}`);
+    navigate(`/inicio-empresa/vacantes/${vacante.id}`);
   };
   return (
     <Flex mt="2rem" flexDirection="column" gap="2rem" mb="5rem">

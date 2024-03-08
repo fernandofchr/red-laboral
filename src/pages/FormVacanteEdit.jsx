@@ -15,6 +15,7 @@ import { DATOS_VACANTE_STATE_INITIAL } from '../constants/EstadosIniciales'
 import { useParams } from 'react-router-dom'
 import { useAlerts } from '../hooks/useAlerts'
 import { Footer } from '../landing/Footer'
+import BasicBreadcrumbs from '../landing/Breadcrumbs'
 
 export function FormVacanteEdit() {
   const { id } = useParams()
@@ -47,6 +48,7 @@ export function FormVacanteEdit() {
   return (
     <>
       <Header nombreDelGrupo={'Empresa'} />
+      <BasicBreadcrumbs/>
       <Flex
         mt='2rem'
         gap='2rem'
@@ -76,7 +78,7 @@ export function FormVacanteEdit() {
       <BotonesForm
         onClick={handleSubmitForm}
         botonCancelar={true}
-        url={`/vacantes/vacante/${id}`}
+        url={`/inicio-empresa/vacantes/${id}`}
       />
       <Footer />
     </>

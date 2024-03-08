@@ -89,7 +89,7 @@ export function useManageVacantes() {
       await DataStore.save(vacante)
       basicAlert({ title: 'Vacante guardada con exito', icon: 'success', text: 'La vacante ha sido creada con exito, podrá visualizarla en su apartado de vacantes.' })
       setDatosVacante(DATOS_VACANTE_STATE_INITIAL)
-      navigate('/vacantes')
+      navigate('/inicio-empresa/vacantes')
     } catch (e) {
       console.log(e)
     }

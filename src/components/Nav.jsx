@@ -53,12 +53,12 @@ export function Nav({ nombreDelGrupo = "Empresa" }) {
                     </Link>
                   </MenuItem>
                   <MenuItem>
-                    <Link as={RouterLink} to="/vacantes">
+                    <Link as={RouterLink} to="/inicio-empresa/vacantes">
                       Vacantes
                     </Link>
                   </MenuItem>
                   <MenuItem>
-                    <Link as={RouterLink} to="/postulados">
+                    <Link as={RouterLink} to="/inicio-empresa/postulados">
                       Postulados
                     </Link>
                   </MenuItem>
@@ -101,21 +101,21 @@ export function Nav({ nombreDelGrupo = "Empresa" }) {
                     Inicio
                   </Text>
                 </RouterLink>
-                <RouterLink to="/vacantes">
+                <RouterLink to="/inicio-empresa/vacantes">
                   <Text
                     color="#fff"
                     _hover={{ color: "#79f0f7" }}
-                    style={isActive("/vacantes") ? { color: "#79f0f7" } : null}
+                    style={isActive("/inicio-empresa/vacantes") ? { color: "#79f0f7" } : null}
                   >
                     Vacantes
                   </Text>
                 </RouterLink>
-                <RouterLink to="/postulados">
+                <RouterLink to="/inicio-empresa/postulados">
                   <Text
                     color="#fff"
                     _hover={{ color: "#79f0f7" }}
                     style={
-                      isActive("/postulados") ? { color: "#79f0f7" } : null
+                      isActive("/inicio-empresa/postulados") ? { color: "#79f0f7" } : null
                     }
                   >
                     Postulados

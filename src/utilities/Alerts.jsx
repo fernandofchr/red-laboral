@@ -23,7 +23,7 @@ export function DeleteAlert() {
   }).then(result => {
     if (result.isConfirmed) {
       Swal.fire('Eliminada', 'Tu vacante ha sido eliminada.', 'success')
-      navigate('/vacantes')
+      navigate('/inicio-empresa/vacantes')
     }
   })
 }

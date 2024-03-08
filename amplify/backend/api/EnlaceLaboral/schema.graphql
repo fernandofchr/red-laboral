@@ -4,7 +4,7 @@ type BDT @model @auth(rules: [{allow: public}, {allow: private}]) {
   apellidos: String
   curp: String
   fechaNacimiento: String
-  telefono: Int
+  telefono: String
   escolaridad: String
   genero: String
   idioma: [String]
@@ -134,4 +134,5 @@ type Styles @model @auth(rules: [{allow: public}, {allow: private}]) {
   cardHab: String
   cardInfo: String
   bdtID: ID! @index(name: "byBDT")
-} 
+}
+ 

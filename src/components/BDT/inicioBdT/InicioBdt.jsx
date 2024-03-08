@@ -80,7 +80,7 @@ export function InicioBdt() {
               Explora las vacantes.
             </Text>
             <ButtonGroup gap="4">
-              <Link to="/buscar-empleo">
+              <Link to="/inicio-bdt/buscar-empleo">
                 <Button colorScheme="facebook">Vacantes</Button>
               </Link>
             </ButtonGroup>

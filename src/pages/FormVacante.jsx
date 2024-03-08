@@ -63,7 +63,7 @@ export function FormVacante() {
       <BotonesForm
         onClick={handleSubmitForm}
         botonCancelar={true}
-        url={'/vacantes'}
+        url={'/inicio-empresa/vacantes'}
       />
       <Footer />
     </>

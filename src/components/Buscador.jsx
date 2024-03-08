@@ -17,13 +17,13 @@ const Buscador = () => {
   // Opciones de búsqueda predeterminadas
   const searchOptions = {
     "Mapa del sitio": "/mapa-sitio",
-    Vacantes: "/vacantes",
+    Vacantes: "/inicio-empresa/vacantes",
     Empresas: "/login-empresa",
     "Terminos y condiciones de empresa": "/terminos-empresa",
     "Aviso de privacidad empresa": "/aviso-empresa",
     "Terminos y condiciones de empleados": "/terminos-bdt",
     "Aviso de privacidad empleados": "/aviso-bdt",
-    "Oportunidades laborales": "/oportunidades-laborales",
+    "Oportunidades laborales": "/inicio-bdt/oportunidades-laborales",
   };
 
   const handleInputChange = (event) => {

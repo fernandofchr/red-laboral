@@ -80,7 +80,7 @@ export function InicioEmpresa() {
               Crea tus vacantes
             </Text>
             <ButtonGroup gap="4">
-              <Link to="/vacantes">
+              <Link to="/inicio-empresa/vacantes">
                 <Button colorScheme="facebook">Vacantes</Button>
               </Link>
             </ButtonGroup>

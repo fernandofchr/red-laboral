@@ -62,7 +62,7 @@ const router = createBrowserRouter([
     element: <LandingEmpresa />
   },
   {
-    path: '/postulados',
+    path: '/inicio-empresa/postulados',
     element: <VacantesPostulados />
   },
   //BDT
@@ -87,11 +87,11 @@ const router = createBrowserRouter([
     element: <LandingBdt />
   },
   {
-    path: '/oportunidades-laborales',
+    path: '/inicio-bdt/oportunidades-laborales',
     element: <OportunidadesLaborales />
   },
   {
-    path: 'buscar-empleo',
+    path: '/inicio-bdt/buscar-empleo',
     element: <BuscarEmpleo />
   },
   //Terminos y condiciones empresa y bdt
@@ -121,15 +121,15 @@ const router = createBrowserRouter([
     )
   },
   {
-    path: '/vacantes',
+    path: '/inicio-empresa/vacantes',
     element: <Vacantes />
   },
   {
-    path: '/vacantes/vacante/:id',
+    path: '/inicio-empresa/vacantes/:id',
     element: <VacanteDatos />
   },
   {
-    path: '/vacantes/vacante/editar-vacante/:id',
+    path: '/inicio-empresa/vacantes/editar-vacante/:id',
     element: (
       <DataVacanteProvider>
         <FormVacanteEdit />

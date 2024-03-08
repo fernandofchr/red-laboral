@@ -15,6 +15,7 @@ import { ButtonVacante } from "../../components/ButtonVacante";
 import { useManageVacantes } from "../../hooks/useManageVacantes";
 import { Footer } from "../../landing/Footer";
 import { useSession } from "../../hooks/useSession";
+import BasicBreadcrumbs from "../../landing/Breadcrumbs";
 
 export function Vacantes() {
   const {
@@ -35,6 +36,7 @@ export function Vacantes() {
   return (
     <>
       <Header nombreDelGrupo={"Empresa"} />
+      <BasicBreadcrumbs/>
       <Stack mt="2rem" p={5}>
         <Heading as="h2" size="2xl">
           Vacantes

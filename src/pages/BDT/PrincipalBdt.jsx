@@ -36,6 +36,7 @@ export function PrincipalBdt() {
     `}
       </style>
       <Header />
+        <BasicBreadcrumbs />
       <Box p={5}>
         <Buscador />
       </Box>
@@ -48,7 +49,6 @@ export function PrincipalBdt() {
           alignItems="center"
           justifyContent="center"
         >
-          <BasicBreadcrumbs />
           <Stack direction="row">
             <Image
               p="5"

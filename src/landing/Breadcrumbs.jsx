@@ -5,7 +5,10 @@ import Link from "@mui/material/Link";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { Box } from "@mui/material";
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import {
+  Box,
+} from "@chakra-ui/react";
 
 // Crear un tema personalizado con el estilo body1 definido
 const theme = createTheme({
@@ -33,7 +36,8 @@ export default function BasicBreadcrumbs() {
 
   return (
     <ThemeProvider theme={theme} p={4}>
-      <Breadcrumbs>
+    <Box p={5}>
+      <Breadcrumbs separator={<ChevronRightIcon fontSize="small" />}>
         {pathnames.length > 0 ? (
           <Link href="/" onClick={(e) => handleBreadcrumbClick(e, "/")}>
             Home
@@ -59,6 +63,7 @@ export default function BasicBreadcrumbs() {
           );
         })}
       </Breadcrumbs>
+      </Box>
     </ThemeProvider>
   );
 }

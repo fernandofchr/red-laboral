@@ -18,7 +18,7 @@ export function MenuVacante({ vacanteId, visible = '' }) {
         <MenuItem
           icon={<Edit />}
           as={Button}
-          onClick={() => navigate(`/vacantes/vacante/editar-vacante/${vacanteId}`)}>
+          onClick={() => navigate(`/inicio-empresa/vacantes/editar-vacante/${vacanteId}`)}>
           Editar
         </MenuItem>
         {visible ? (

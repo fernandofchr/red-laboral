@@ -18,6 +18,7 @@ import { useParams } from "react-router-dom";
 import { useManageVacantes } from "../../hooks/useManageVacantes";
 import { Footer } from "../../landing/Footer";
 import { ButtonVacante } from "../../components/ButtonVacante";
+import BasicBreadcrumbs from "../../landing/Breadcrumbs";
 
 export function VacanteDatos() {
   const { id } = useParams();
@@ -30,6 +31,7 @@ export function VacanteDatos() {
   return (
     <Box>
       <Header nombreDelGrupo={"Empresa"} />
+      <BasicBreadcrumbs/>
       <Flex
         mx={{ base: "2rem", sm: "4rem", md: "8rem" }}
         mt="2rem"
@@ -137,7 +139,7 @@ export function VacanteDatos() {
         </Card>
       </Flex>
       <Flex justifyContent="center" alignItems="start">
-        <ButtonVacante mb="2rem" to="/vacantes">
+        <ButtonVacante mb="2rem" to="/inicio-empresa/vacantes">
           Ver vacantes
         </ButtonVacante>
       </Flex>

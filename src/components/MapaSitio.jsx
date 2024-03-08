@@ -14,6 +14,7 @@ import { AreaEmpresa } from "../constants/Datos";
 import { Header } from "./Header";
 import { Footer } from "../landing/Footer";
 import { Link } from "react-router-dom";
+import BasicBreadcrumbs from "../landing/Breadcrumbs";
 
 export function MapaSitio() {
   const [showAllMunicipios, setShowAllMunicipios] = useState(false);
@@ -22,6 +23,7 @@ export function MapaSitio() {
   return (
     <>
       <Header />
+      <BasicBreadcrumbs/>
       <Box p={5}>
         <Heading>Mapa del sitio</Heading>
         <SimpleGrid
@@ -117,14 +119,14 @@ export function MapaSitio() {
                 </Link>
               </ListItem>
               <ListItem>
-                <Link to="/postulados">
+                <Link to="/inicio-empresa/postulados">
                   <Text fontSize={21} _hover={{ color: "#79f0f7" }}>
                     Ver postulados
                   </Text>
                 </Link>
               </ListItem>
               <ListItem>
-                <Link to="/vacantes">
+                <Link to="/inicio-empresa/vacantes">
                   <Text fontSize={21} _hover={{ color: "#79f0f7" }}>
                     Vacantes creadas
                   </Text>
@@ -152,14 +154,14 @@ export function MapaSitio() {
                 </Link>
               </ListItem>
               <ListItem>
-                <Link to="/buscar-empleo">
+                <Link to="/inicio-bdt/buscar-empleo">
                   <Text fontSize={21} _hover={{ color: "#79f0f7" }}>
                     Ver vacantes
                   </Text>
                 </Link>
               </ListItem>
               <ListItem>
-                <Link to="/oportunidades-laborales">
+                <Link to="/inicio-bdt/oportunidades-laborales">
                   <Text fontSize={21} _hover={{ color: "#79f0f7" }}>
                     Opurtunidades laborales
                   </Text>

@@ -130,14 +130,49 @@ export function NavMedium() {
             </Heading>
           </CardHeader>
           <CardBody>
-            <Text>
-              Simplicidad
-              <br />
-              Conexión
-              <br /> Amigabilidad
-              <br /> Innovación constante
-              <br /> Inclusión y diversidad
-            </Text>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                textAlign: "justify",
+              }}
+            >
+              <div style={{ flex: 1 }}>
+                <Text>
+                  Integridad
+                  <br />
+                  Transparencia
+                  <br />
+                  Responsabilidad
+                  <br />
+                  Empatía
+                  <br />
+                  Conexión
+                  <br />
+                  Inclusión y diversidad
+                  <br />
+                  Equidad
+                </Text>
+              </div>
+              <div style={{ flex: 1 }}>
+                <Text>
+                  Colaboración
+                  <br />
+                  Amigabilidad
+                  <br />
+                  Innovación constante
+                  <br />
+                  Agilidad
+                  <br />
+                  Adaptabilidad
+                  <br />
+                  Simplicidad
+                  <br />
+                  Eficiencia
+                </Text>
+              </div>
+            </div>
           </CardBody>
         </Card>
       </SimpleGrid>

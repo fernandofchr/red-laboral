@@ -11,14 +11,22 @@ export function VacantesPostulados() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchGroupName = async () => {
-      const session = await Auth.currentSession();
-      const userData = session.getIdToken().payload;
-      const groupName = userData['cognito:groups'][0];
-       setGroupName(groupName);
+    const checkAuth = async () => {
+      try {
+        const session = await Auth.currentSession();
+        const userData = session.getIdToken().payload;
+        const groupName = userData['cognito:groups'][0];
+        setGroupName(groupName);
+        if (groupName !== 'Empresa') {
+          navigate('/error-sesion');
+        }
+      } catch (error) {
+        console.log(error);
+        navigate('/error-sesion');
+      }
     };
-    fetchGroupName();
-  }, [])
+    checkAuth();
+  }, [groupName, navigate]);
 
   useEffect(() => {
     if (groupName == 'trabajador') {

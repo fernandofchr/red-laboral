@@ -11,3 +11,66 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+  .amplify-button--primary{
+	display: none !important;
+  } 
+
+  .amplify-field-group__control:last-child:not(.amplify-button--link , .amplify-button--small){
+	display: none !important;
+  }
+  .amplify-label{
+	display: none !important;
+  }
+  .amplify-flex.federated-sign-in-container{
+    display: none !important;
+  }
+
+  
+
+.no-phone_number  .amplify-phonenumberfield{
+	display: none !important;
+  }
+
+  .home-page-link {
+	transition: transform 0.3s ease; 
+	cursor: pointer;
+  }
+  
+  .home-page-link:hover {
+	transform: scale(1.1); /* Escalar la imagen en un 10% */
+  }
+  .home-page-link {
+    position: relative;
+    display: inline-block;
+  }
+  .home-page-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    box-shadow: 4px 4px 8px rgba(2, 2, 2, 3); /* Ajusta estos valores según tus preferencias */
+  }
+
+  .amplify-visually-hidden{
+	display: none !important;
+  }
+
+  
+  [data-amplify-authenticator] {
+    --amplify-components-authenticator-router-box-shadow: 0 0 20px var(--amplify-colors-overlay-30);
+    --amplify-components-authenticator-router-border-width: 0.3;
+    --amplify-components-tabs-item-active-color: var(--amplify-colors-red-100);
+    --amplify-components-tabs-item-active-border-color: var(--amplify-colors-red-100);
+    --amplify-components-button-link-color: var(--amplify-colors-green-100);
+    --amplify-components-tabs-item-color:var(--amplify-colors-red-100);
+  }
+  
+  .no-emai{
+    background-color: black;
+  }
+  
+  

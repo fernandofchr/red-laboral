@@ -67,7 +67,12 @@ const Buscador = () => {
     }
   };
 
-  const toggleSearch = () => setIsOpen(!isOpen); // Función para mostrar/ocultar el buscador
+  const toggleSearch = () => {
+    setIsOpen(!isOpen); // Cambia el estado de visibilidad del buscador
+    if (!isOpen) {
+      window.scrollTo(0, 0); // Desplaza la ventana a la parte superior de la página
+    }
+  };
 
   return (
     <>
@@ -84,9 +89,10 @@ const Buscador = () => {
       {isOpen && (
         <Box
           p={2}
+          bottom="80px"
           right="20px"
           zIndex="100"
-          bgColor="tranparent"
+          bgColor="transparent"
           boxShadow="lg"
           borderRadius="md"
         >

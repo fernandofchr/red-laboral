@@ -11,17 +11,25 @@ export function BuscarEmpleo() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchGroupName = async () => {
-      const session = await Auth.currentSession();
-      const userData = session.getIdToken().payload;
-      const groupName = userData['cognito:groups'][0];
-       setGroupName(groupName);
+    const checkAuth = async () => {
+      try {
+        const session = await Auth.currentSession();
+        const userData = session.getIdToken().payload;
+        const groupName = userData['cognito:groups'][0];
+        setGroupName(groupName);
+        if (groupName !== 'trabajador') {
+          navigate('/error-sesion');
+        }
+      } catch (error) {
+        console.log(error);
+        navigate('/error-sesion');
+      }
     };
-    fetchGroupName();
-  }, [])
+    checkAuth();
+  }, [groupName, navigate]);
 
   useEffect(() => {
-    if (groupName == 'Empresa') {
+    if (groupName ==='Empresa') {
       navigate('/inicio-Empresa');
     }
   }, [groupName]);

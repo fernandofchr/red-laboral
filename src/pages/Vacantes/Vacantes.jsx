@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Header } from "../../components/Header";
 import {
   Flex,
@@ -17,8 +17,10 @@ import { Footer } from "../../landing/Footer";
 import { useSession } from "../../hooks/useSession";
 import BasicBreadcrumbs from "../../landing/Breadcrumbs";
 import { useNavigate } from "react-router-dom";
+import { Auth } from "aws-amplify";
 
 export function Vacantes() {
+  const [groupName, setGroupName] = useState('');
   const navigate= useNavigate()
   const {
     listVacantes,
@@ -34,6 +36,26 @@ export function Vacantes() {
     if (isVacanteVisible) listVacantes({ emailEmpresa: dataSession.email });
     else listVacantesNoVisibles({ emailEmpresa: dataSession.email });
   }, []);
+  
+  
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const session = await Auth.currentSession();
+        const userData = session.getIdToken().payload;
+        const groupName = userData['cognito:groups'][0];
+        setGroupName(groupName);
+        if (groupName !== 'Empresa') {
+          navigate('/error-sesion');
+        }
+      } catch (error) {
+        console.log(error);
+        navigate('/error-sesion');
+      }
+    };
+    checkAuth();
+  }, [groupName, navigate]);
   
   useEffect(() => {
     if (dataSession == 'trabajador') {

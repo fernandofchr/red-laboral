@@ -4,7 +4,7 @@ type BDT @model @auth(rules: [{allow: public}, {allow: private}]) {
   apellidos: String
   curp: String
   fechaNacimiento: String
-  telefono: String
+  telefono: Int
   escolaridad: String
   genero: String
   idioma: [String]

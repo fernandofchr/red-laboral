@@ -78,7 +78,7 @@ export default function SignIn() {
       }
 
       await Auth.signIn(username, password);
-      navigate('/inicio-bdt');
+      navigate('/inicio-empresa');
     } catch (error) {
       setUserNotFoundError(true);
       console.log(error);

@@ -37,31 +37,19 @@ export function Vacantes() {
     else listVacantesNoVisibles({ emailEmpresa: dataSession.email });
   }, []);
   
-  
-
   useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const session = await Auth.currentSession();
-        const userData = session.getIdToken().payload;
-        const groupName = userData['cognito:groups'][0];
-        setGroupName(groupName);
-        if (groupName !== 'Empresa') {
-          navigate('/error-sesion');
-        }
-      } catch (error) {
-        console.log(error);
-        navigate('/error-sesion');
+    const fetchGroupName = async () => {
+      const session = await Auth.currentSession();
+      const userData = session.getIdToken().payload;
+      console.log(userData); 
+      const groupName = userData['cognito:groups'][0];
+      console.log(groupName);
+      if (groupName === 'trabajador') {
+        navigate('/inicio-bdt');
       }
     };
-    checkAuth();
-  }, [groupName, navigate]);
-  
-  useEffect(() => {
-    if (dataSession == 'trabajador') {
-      navigate('/inicio-bdt');
-    }
-  }, [dataSession]);
+    fetchGroupName();
+  }, [])
 
   return (
     <>

@@ -189,7 +189,7 @@ export default function VacanteCreateForm(props) {
     ...rest
   } = props;
   const initialValues = {
-    nombre: "",
+    nomrb: "",
     descripcion: "",
     numeroPlazas: "",
     area: "",
@@ -213,12 +213,12 @@ export default function VacanteCreateForm(props) {
     salarioMin: "",
     salarioMax: "",
     idiomaConNivel: [],
-    municipio: "",
+    municpio: "",
     jornadaLaboral: "",
     periodoPago: "",
     empresaID: "",
   };
-  const [nombre, setNombre] = React.useState(initialValues.nombre);
+  const [nomrb, setNomrb] = React.useState(initialValues.nomrb);
   const [descripcion, setDescripcion] = React.useState(
     initialValues.descripcion
   );
@@ -268,7 +268,7 @@ export default function VacanteCreateForm(props) {
   const [idiomaConNivel, setIdiomaConNivel] = React.useState(
     initialValues.idiomaConNivel
   );
-  const [municipio, setMunicipio] = React.useState(initialValues.municipio);
+  const [municpio, setMunicpio] = React.useState(initialValues.municpio);
   const [jornadaLaboral, setJornadaLaboral] = React.useState(
     initialValues.jornadaLaboral
   );
@@ -278,7 +278,7 @@ export default function VacanteCreateForm(props) {
   const [empresaID, setEmpresaID] = React.useState(initialValues.empresaID);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
-    setNombre(initialValues.nombre);
+    setNomrb(initialValues.nomrb);
     setDescripcion(initialValues.descripcion);
     setNumeroPlazas(initialValues.numeroPlazas);
     setArea(initialValues.area);
@@ -308,7 +308,7 @@ export default function VacanteCreateForm(props) {
     setSalarioMax(initialValues.salarioMax);
     setIdiomaConNivel(initialValues.idiomaConNivel);
     setCurrentIdiomaConNivelValue("");
-    setMunicipio(initialValues.municipio);
+    setMunicpio(initialValues.municpio);
     setJornadaLaboral(initialValues.jornadaLaboral);
     setPeriodoPago(initialValues.periodoPago);
     setEmpresaID(initialValues.empresaID);
@@ -332,7 +332,7 @@ export default function VacanteCreateForm(props) {
     React.useState("");
   const idiomaConNivelRef = React.createRef();
   const validations = {
-    nombre: [],
+    nomrb: [],
     descripcion: [],
     numeroPlazas: [],
     area: [],
@@ -356,7 +356,7 @@ export default function VacanteCreateForm(props) {
     salarioMin: [],
     salarioMax: [],
     idiomaConNivel: [],
-    municipio: [],
+    municpio: [],
     jornadaLaboral: [],
     periodoPago: [],
     empresaID: [{ type: "Required" }],
@@ -387,7 +387,7 @@ export default function VacanteCreateForm(props) {
       onSubmit={async (event) => {
         event.preventDefault();
         let modelFields = {
-          nombre,
+          nomrb,
           descripcion,
           numeroPlazas,
           area,
@@ -411,7 +411,7 @@ export default function VacanteCreateForm(props) {
           salarioMin,
           salarioMax,
           idiomaConNivel,
-          municipio,
+          municpio,
           jornadaLaboral,
           periodoPago,
           empresaID,
@@ -461,15 +461,15 @@ export default function VacanteCreateForm(props) {
       {...rest}
     >
       <TextField
-        label="Nombre"
+        label="Nomrb"
         isRequired={false}
         isReadOnly={false}
-        value={nombre}
+        value={nomrb}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              nombre: value,
+              nomrb: value,
               descripcion,
               numeroPlazas,
               area,
@@ -493,23 +493,23 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID,
             };
             const result = onChange(modelFields);
-            value = result?.nombre ?? value;
+            value = result?.nomrb ?? value;
           }
-          if (errors.nombre?.hasError) {
-            runValidationTasks("nombre", value);
+          if (errors.nomrb?.hasError) {
+            runValidationTasks("nomrb", value);
           }
-          setNombre(value);
+          setNomrb(value);
         }}
-        onBlur={() => runValidationTasks("nombre", nombre)}
-        errorMessage={errors.nombre?.errorMessage}
-        hasError={errors.nombre?.hasError}
-        {...getOverrideProps(overrides, "nombre")}
+        onBlur={() => runValidationTasks("nomrb", nomrb)}
+        errorMessage={errors.nomrb?.errorMessage}
+        hasError={errors.nomrb?.hasError}
+        {...getOverrideProps(overrides, "nomrb")}
       ></TextField>
       <TextField
         label="Descripcion"
@@ -520,7 +520,7 @@ export default function VacanteCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion: value,
               numeroPlazas,
               area,
@@ -544,7 +544,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID,
@@ -575,7 +575,7 @@ export default function VacanteCreateForm(props) {
             : parseInt(e.target.value);
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas: value,
               area,
@@ -599,7 +599,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID,
@@ -626,7 +626,7 @@ export default function VacanteCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area: value,
@@ -650,7 +650,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID,
@@ -677,7 +677,7 @@ export default function VacanteCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area,
@@ -701,7 +701,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID,
@@ -728,7 +728,7 @@ export default function VacanteCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area,
@@ -752,7 +752,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID,
@@ -779,7 +779,7 @@ export default function VacanteCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area,
@@ -803,7 +803,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID,
@@ -834,7 +834,7 @@ export default function VacanteCreateForm(props) {
             : parseInt(e.target.value);
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area,
@@ -858,7 +858,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID,
@@ -889,7 +889,7 @@ export default function VacanteCreateForm(props) {
             : parseInt(e.target.value);
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area,
@@ -913,7 +913,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID,
@@ -940,7 +940,7 @@ export default function VacanteCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area,
@@ -964,7 +964,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID,
@@ -991,7 +991,7 @@ export default function VacanteCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area,
@@ -1015,7 +1015,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID,
@@ -1044,7 +1044,7 @@ export default function VacanteCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area,
@@ -1068,7 +1068,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID,
@@ -1091,7 +1091,7 @@ export default function VacanteCreateForm(props) {
           let values = items;
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area,
@@ -1115,7 +1115,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID,
@@ -1163,7 +1163,7 @@ export default function VacanteCreateForm(props) {
           let values = items;
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area,
@@ -1187,7 +1187,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID,
@@ -1237,7 +1237,7 @@ export default function VacanteCreateForm(props) {
           let values = items;
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area,
@@ -1261,7 +1261,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID,
@@ -1311,7 +1311,7 @@ export default function VacanteCreateForm(props) {
           let values = items;
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area,
@@ -1335,7 +1335,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID,
@@ -1391,7 +1391,7 @@ export default function VacanteCreateForm(props) {
           let values = items;
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area,
@@ -1415,7 +1415,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID,
@@ -1475,7 +1475,7 @@ export default function VacanteCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area,
@@ -1499,7 +1499,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID,
@@ -1526,7 +1526,7 @@ export default function VacanteCreateForm(props) {
           let value = e.target.checked;
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area,
@@ -1550,7 +1550,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID,
@@ -1577,7 +1577,7 @@ export default function VacanteCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area,
@@ -1601,7 +1601,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID,
@@ -1628,7 +1628,7 @@ export default function VacanteCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area,
@@ -1652,7 +1652,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID,
@@ -1683,7 +1683,7 @@ export default function VacanteCreateForm(props) {
             : parseInt(e.target.value);
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area,
@@ -1707,7 +1707,7 @@ export default function VacanteCreateForm(props) {
               salarioMin: value,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID,
@@ -1738,7 +1738,7 @@ export default function VacanteCreateForm(props) {
             : parseInt(e.target.value);
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area,
@@ -1762,7 +1762,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax: value,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID,
@@ -1785,7 +1785,7 @@ export default function VacanteCreateForm(props) {
           let values = items;
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area,
@@ -1809,7 +1809,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel: values,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID,
@@ -1855,15 +1855,15 @@ export default function VacanteCreateForm(props) {
         ></TextField>
       </ArrayField>
       <TextField
-        label="Municipio"
+        label="Municpio"
         isRequired={false}
         isReadOnly={false}
-        value={municipio}
+        value={municpio}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area,
@@ -1887,23 +1887,23 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio: value,
+              municpio: value,
               jornadaLaboral,
               periodoPago,
               empresaID,
             };
             const result = onChange(modelFields);
-            value = result?.municipio ?? value;
+            value = result?.municpio ?? value;
           }
-          if (errors.municipio?.hasError) {
-            runValidationTasks("municipio", value);
+          if (errors.municpio?.hasError) {
+            runValidationTasks("municpio", value);
           }
-          setMunicipio(value);
+          setMunicpio(value);
         }}
-        onBlur={() => runValidationTasks("municipio", municipio)}
-        errorMessage={errors.municipio?.errorMessage}
-        hasError={errors.municipio?.hasError}
-        {...getOverrideProps(overrides, "municipio")}
+        onBlur={() => runValidationTasks("municpio", municpio)}
+        errorMessage={errors.municpio?.errorMessage}
+        hasError={errors.municpio?.hasError}
+        {...getOverrideProps(overrides, "municpio")}
       ></TextField>
       <TextField
         label="Jornada laboral"
@@ -1914,7 +1914,7 @@ export default function VacanteCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area,
@@ -1938,7 +1938,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral: value,
               periodoPago,
               empresaID,
@@ -1965,7 +1965,7 @@ export default function VacanteCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area,
@@ -1989,7 +1989,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago: value,
               empresaID,
@@ -2016,7 +2016,7 @@ export default function VacanteCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              nombre,
+              nomrb,
               descripcion,
               numeroPlazas,
               area,
@@ -2040,7 +2040,7 @@ export default function VacanteCreateForm(props) {
               salarioMin,
               salarioMax,
               idiomaConNivel,
-              municipio,
+              municpio,
               jornadaLaboral,
               periodoPago,
               empresaID: value,

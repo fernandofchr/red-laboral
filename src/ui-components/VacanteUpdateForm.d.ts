@@ -23,7 +23,7 @@ export declare type ValidationResponse = {
 };
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
 export declare type VacanteUpdateFormInputValues = {
-    nombre?: string;
+    nomrb?: string;
     descripcion?: string;
     numeroPlazas?: number;
     area?: string;
@@ -47,13 +47,13 @@ export declare type VacanteUpdateFormInputValues = {
     salarioMin?: number;
     salarioMax?: number;
     idiomaConNivel?: string[];
-    municipio?: string;
+    municpio?: string;
     jornadaLaboral?: string;
     periodoPago?: string;
     empresaID?: string;
 };
 export declare type VacanteUpdateFormValidationValues = {
-    nombre?: ValidationFunction<string>;
+    nomrb?: ValidationFunction<string>;
     descripcion?: ValidationFunction<string>;
     numeroPlazas?: ValidationFunction<number>;
     area?: ValidationFunction<string>;
@@ -77,7 +77,7 @@ export declare type VacanteUpdateFormValidationValues = {
     salarioMin?: ValidationFunction<number>;
     salarioMax?: ValidationFunction<number>;
     idiomaConNivel?: ValidationFunction<string>;
-    municipio?: ValidationFunction<string>;
+    municpio?: ValidationFunction<string>;
     jornadaLaboral?: ValidationFunction<string>;
     periodoPago?: ValidationFunction<string>;
     empresaID?: ValidationFunction<string>;
@@ -85,7 +85,7 @@ export declare type VacanteUpdateFormValidationValues = {
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type VacanteUpdateFormOverridesProps = {
     VacanteUpdateFormGrid?: PrimitiveOverrideProps<GridProps>;
-    nombre?: PrimitiveOverrideProps<TextFieldProps>;
+    nomrb?: PrimitiveOverrideProps<TextFieldProps>;
     descripcion?: PrimitiveOverrideProps<TextFieldProps>;
     numeroPlazas?: PrimitiveOverrideProps<TextFieldProps>;
     area?: PrimitiveOverrideProps<TextFieldProps>;
@@ -109,7 +109,7 @@ export declare type VacanteUpdateFormOverridesProps = {
     salarioMin?: PrimitiveOverrideProps<TextFieldProps>;
     salarioMax?: PrimitiveOverrideProps<TextFieldProps>;
     idiomaConNivel?: PrimitiveOverrideProps<TextFieldProps>;
-    municipio?: PrimitiveOverrideProps<TextFieldProps>;
+    municpio?: PrimitiveOverrideProps<TextFieldProps>;
     jornadaLaboral?: PrimitiveOverrideProps<TextFieldProps>;
     periodoPago?: PrimitiveOverrideProps<TextFieldProps>;
     empresaID?: PrimitiveOverrideProps<TextFieldProps>;

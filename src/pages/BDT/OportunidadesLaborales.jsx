@@ -7,24 +7,21 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export function OportunidadesLaborales() {
-  const [groupName, setGroupName] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchGroupName = async () => {
       const session = await Auth.currentSession();
       const userData = session.getIdToken().payload;
+      console.log(userData); 
       const groupName = userData['cognito:groups'][0];
-       setGroupName(groupName);
+      console.log(groupName);
+      if (groupName === 'Empresa') {
+        navigate('/inicio-empresa');
+      }
     };
     fetchGroupName();
   }, [])
-
-  useEffect(() => {
-    if (groupName == 'Empresa') {
-      navigate('/inicio-empresa');
-    }
-  }, [groupName]);
   return (
     <>
       <NavegadorBDT />

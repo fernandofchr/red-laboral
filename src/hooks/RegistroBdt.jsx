@@ -13,7 +13,7 @@ export const registarBdE = async (
       nombre: datosInforPersonal.nombre,
       apellidos: datosInforPersonal.apellidos,
       correo: datosInforPersonal.correo,
-      telefono:parseInt(datosInforPersonal.telefono),
+      telefono:String(datosInforPersonal.telefono),
       curp: datosInforPersonal.curp,
       escolaridad: datosInforPersonal.escolaridad,
       fechaNacimiento: String(datosInforPersonal.fechaNacimiento),

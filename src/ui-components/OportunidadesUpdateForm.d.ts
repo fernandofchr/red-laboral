@@ -28,7 +28,7 @@ export declare type OportunidadesUpdateFormInputValues = {
     numeroPlazas?: number;
     area?: string;
     tipoContrato?: string;
-    modaiidad?: string;
+    modalidad?: string;
     diasLaborales?: string;
     edadMax?: number;
     edadMin?: number;
@@ -44,8 +44,8 @@ export declare type OportunidadesUpdateFormInputValues = {
     visible?: boolean;
     ubicacion?: string;
     nombreEmpresa?: string;
-    salarioMaximo?: number;
     salarioMin?: number;
+    salarioMaximo?: number;
     idiomaConNivel?: string[];
     municipio?: string;
     jornadaLaboral?: string;
@@ -68,7 +68,7 @@ export declare type OportunidadesUpdateFormValidationValues = {
     numeroPlazas?: ValidationFunction<number>;
     area?: ValidationFunction<string>;
     tipoContrato?: ValidationFunction<string>;
-    modaiidad?: ValidationFunction<string>;
+    modalidad?: ValidationFunction<string>;
     diasLaborales?: ValidationFunction<string>;
     edadMax?: ValidationFunction<number>;
     edadMin?: ValidationFunction<number>;
@@ -84,8 +84,8 @@ export declare type OportunidadesUpdateFormValidationValues = {
     visible?: ValidationFunction<boolean>;
     ubicacion?: ValidationFunction<string>;
     nombreEmpresa?: ValidationFunction<string>;
-    salarioMaximo?: ValidationFunction<number>;
     salarioMin?: ValidationFunction<number>;
+    salarioMaximo?: ValidationFunction<number>;
     idiomaConNivel?: ValidationFunction<string>;
     municipio?: ValidationFunction<string>;
     jornadaLaboral?: ValidationFunction<string>;
@@ -110,7 +110,7 @@ export declare type OportunidadesUpdateFormOverridesProps = {
     numeroPlazas?: PrimitiveOverrideProps<TextFieldProps>;
     area?: PrimitiveOverrideProps<TextFieldProps>;
     tipoContrato?: PrimitiveOverrideProps<TextFieldProps>;
-    modaiidad?: PrimitiveOverrideProps<TextFieldProps>;
+    modalidad?: PrimitiveOverrideProps<TextFieldProps>;
     diasLaborales?: PrimitiveOverrideProps<TextFieldProps>;
     edadMax?: PrimitiveOverrideProps<TextFieldProps>;
     edadMin?: PrimitiveOverrideProps<TextFieldProps>;
@@ -126,8 +126,8 @@ export declare type OportunidadesUpdateFormOverridesProps = {
     visible?: PrimitiveOverrideProps<SwitchFieldProps>;
     ubicacion?: PrimitiveOverrideProps<TextFieldProps>;
     nombreEmpresa?: PrimitiveOverrideProps<TextFieldProps>;
-    salarioMaximo?: PrimitiveOverrideProps<TextFieldProps>;
     salarioMin?: PrimitiveOverrideProps<TextFieldProps>;
+    salarioMaximo?: PrimitiveOverrideProps<TextFieldProps>;
     idiomaConNivel?: PrimitiveOverrideProps<TextFieldProps>;
     municipio?: PrimitiveOverrideProps<TextFieldProps>;
     jornadaLaboral?: PrimitiveOverrideProps<TextFieldProps>;

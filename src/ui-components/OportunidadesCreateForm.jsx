@@ -194,7 +194,7 @@ export default function OportunidadesCreateForm(props) {
     numeroPlazas: "",
     area: "",
     tipoContrato: "",
-    modaiidad: "",
+    modalidad: "",
     diasLaborales: "",
     edadMax: "",
     edadMin: "",
@@ -210,8 +210,8 @@ export default function OportunidadesCreateForm(props) {
     visible: false,
     ubicacion: "",
     nombreEmpresa: "",
-    salarioMaximo: "",
     salarioMin: "",
+    salarioMaximo: "",
     idiomaConNivel: [],
     municipio: "",
     jornadaLaboral: "",
@@ -239,7 +239,7 @@ export default function OportunidadesCreateForm(props) {
   const [tipoContrato, setTipoContrato] = React.useState(
     initialValues.tipoContrato
   );
-  const [modaiidad, setModaiidad] = React.useState(initialValues.modaiidad);
+  const [modalidad, setModalidad] = React.useState(initialValues.modalidad);
   const [diasLaborales, setDiasLaborales] = React.useState(
     initialValues.diasLaborales
   );
@@ -273,10 +273,10 @@ export default function OportunidadesCreateForm(props) {
   const [nombreEmpresa, setNombreEmpresa] = React.useState(
     initialValues.nombreEmpresa
   );
+  const [salarioMin, setSalarioMin] = React.useState(initialValues.salarioMin);
   const [salarioMaximo, setSalarioMaximo] = React.useState(
     initialValues.salarioMaximo
   );
-  const [salarioMin, setSalarioMin] = React.useState(initialValues.salarioMin);
   const [idiomaConNivel, setIdiomaConNivel] = React.useState(
     initialValues.idiomaConNivel
   );
@@ -315,7 +315,7 @@ export default function OportunidadesCreateForm(props) {
     setNumeroPlazas(initialValues.numeroPlazas);
     setArea(initialValues.area);
     setTipoContrato(initialValues.tipoContrato);
-    setModaiidad(initialValues.modaiidad);
+    setModalidad(initialValues.modalidad);
     setDiasLaborales(initialValues.diasLaborales);
     setEdadMax(initialValues.edadMax);
     setEdadMin(initialValues.edadMin);
@@ -336,8 +336,8 @@ export default function OportunidadesCreateForm(props) {
     setVisible(initialValues.visible);
     setUbicacion(initialValues.ubicacion);
     setNombreEmpresa(initialValues.nombreEmpresa);
-    setSalarioMaximo(initialValues.salarioMaximo);
     setSalarioMin(initialValues.salarioMin);
+    setSalarioMaximo(initialValues.salarioMaximo);
     setIdiomaConNivel(initialValues.idiomaConNivel);
     setCurrentIdiomaConNivelValue("");
     setMunicipio(initialValues.municipio);
@@ -379,7 +379,7 @@ export default function OportunidadesCreateForm(props) {
     numeroPlazas: [],
     area: [],
     tipoContrato: [],
-    modaiidad: [],
+    modalidad: [],
     diasLaborales: [],
     edadMax: [],
     edadMin: [],
@@ -395,8 +395,8 @@ export default function OportunidadesCreateForm(props) {
     visible: [],
     ubicacion: [],
     nombreEmpresa: [],
-    salarioMaximo: [],
     salarioMin: [],
+    salarioMaximo: [],
     idiomaConNivel: [],
     municipio: [],
     jornadaLaboral: [],
@@ -444,7 +444,7 @@ export default function OportunidadesCreateForm(props) {
           numeroPlazas,
           area,
           tipoContrato,
-          modaiidad,
+          modalidad,
           diasLaborales,
           edadMax,
           edadMin,
@@ -460,8 +460,8 @@ export default function OportunidadesCreateForm(props) {
           visible,
           ubicacion,
           nombreEmpresa,
-          salarioMaximo,
           salarioMin,
+          salarioMaximo,
           idiomaConNivel,
           municipio,
           jornadaLaboral,
@@ -536,7 +536,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -552,8 +552,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -597,7 +597,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -613,8 +613,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -662,7 +662,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas: value,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -678,8 +678,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -723,7 +723,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area: value,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -739,8 +739,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -784,7 +784,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato: value,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -800,8 +800,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -832,10 +832,10 @@ export default function OportunidadesCreateForm(props) {
         {...getOverrideProps(overrides, "tipoContrato")}
       ></TextField>
       <TextField
-        label="Modaiidad"
+        label="Modalidad"
         isRequired={false}
         isReadOnly={false}
-        value={modaiidad}
+        value={modalidad}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -845,7 +845,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad: value,
+              modalidad: value,
               diasLaborales,
               edadMax,
               edadMin,
@@ -861,8 +861,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -880,17 +880,17 @@ export default function OportunidadesCreateForm(props) {
               vacanteID,
             };
             const result = onChange(modelFields);
-            value = result?.modaiidad ?? value;
+            value = result?.modalidad ?? value;
           }
-          if (errors.modaiidad?.hasError) {
-            runValidationTasks("modaiidad", value);
+          if (errors.modalidad?.hasError) {
+            runValidationTasks("modalidad", value);
           }
-          setModaiidad(value);
+          setModalidad(value);
         }}
-        onBlur={() => runValidationTasks("modaiidad", modaiidad)}
-        errorMessage={errors.modaiidad?.errorMessage}
-        hasError={errors.modaiidad?.hasError}
-        {...getOverrideProps(overrides, "modaiidad")}
+        onBlur={() => runValidationTasks("modalidad", modalidad)}
+        errorMessage={errors.modalidad?.errorMessage}
+        hasError={errors.modalidad?.hasError}
+        {...getOverrideProps(overrides, "modalidad")}
       ></TextField>
       <TextField
         label="Dias laborales"
@@ -906,7 +906,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales: value,
               edadMax,
               edadMin,
@@ -922,8 +922,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -971,7 +971,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax: value,
               edadMin,
@@ -987,8 +987,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -1036,7 +1036,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin: value,
@@ -1052,8 +1052,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -1097,7 +1097,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -1113,8 +1113,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -1158,7 +1158,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -1174,8 +1174,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -1221,7 +1221,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -1237,8 +1237,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -1278,7 +1278,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -1294,8 +1294,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -1360,7 +1360,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -1376,8 +1376,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -1444,7 +1444,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -1460,8 +1460,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -1528,7 +1528,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -1544,8 +1544,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -1618,7 +1618,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -1634,8 +1634,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -1712,7 +1712,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -1728,8 +1728,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -1773,7 +1773,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -1789,8 +1789,8 @@ export default function OportunidadesCreateForm(props) {
               visible: value,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -1834,7 +1834,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -1850,8 +1850,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion: value,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -1895,7 +1895,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -1911,8 +1911,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa: value,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -1943,71 +1943,6 @@ export default function OportunidadesCreateForm(props) {
         {...getOverrideProps(overrides, "nombreEmpresa")}
       ></TextField>
       <TextField
-        label="Salario maximo"
-        isRequired={false}
-        isReadOnly={false}
-        type="number"
-        step="any"
-        value={salarioMaximo}
-        onChange={(e) => {
-          let value = isNaN(parseFloat(e.target.value))
-            ? e.target.value
-            : parseFloat(e.target.value);
-          if (onChange) {
-            const modelFields = {
-              nombre,
-              descripcion,
-              numeroPlazas,
-              area,
-              tipoContrato,
-              modaiidad,
-              diasLaborales,
-              edadMax,
-              edadMin,
-              genero,
-              experienciaLaboral,
-              escolaridad,
-              idioma,
-              nivelIdioma,
-              prestaciones,
-              habilidadesBlandas,
-              habilidadesTecnicas,
-              emailEmpresa,
-              visible,
-              ubicacion,
-              nombreEmpresa,
-              salarioMaximo: value,
-              salarioMin,
-              idiomaConNivel,
-              municipio,
-              jornadaLaboral,
-              emailBDT,
-              nombreBDT,
-              periodoPago,
-              apellidosBDT,
-              imagenBDTUrl,
-              pdfimagenUrl,
-              escolaridadBDT,
-              telefonoBDT,
-              generoBDT,
-              bdtID,
-              empresaID,
-              vacanteID,
-            };
-            const result = onChange(modelFields);
-            value = result?.salarioMaximo ?? value;
-          }
-          if (errors.salarioMaximo?.hasError) {
-            runValidationTasks("salarioMaximo", value);
-          }
-          setSalarioMaximo(value);
-        }}
-        onBlur={() => runValidationTasks("salarioMaximo", salarioMaximo)}
-        errorMessage={errors.salarioMaximo?.errorMessage}
-        hasError={errors.salarioMaximo?.hasError}
-        {...getOverrideProps(overrides, "salarioMaximo")}
-      ></TextField>
-      <TextField
         label="Salario min"
         isRequired={false}
         isReadOnly={false}
@@ -2025,7 +1960,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -2041,8 +1976,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin: value,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -2072,9 +2007,17 @@ export default function OportunidadesCreateForm(props) {
         hasError={errors.salarioMin?.hasError}
         {...getOverrideProps(overrides, "salarioMin")}
       ></TextField>
-      <ArrayField
-        onChange={async (items) => {
-          let values = items;
+      <TextField
+        label="Salario maximo"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={salarioMaximo}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
           if (onChange) {
             const modelFields = {
               nombre,
@@ -2082,7 +2025,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -2098,8 +2041,65 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo: value,
+              idiomaConNivel,
+              municipio,
+              jornadaLaboral,
+              emailBDT,
+              nombreBDT,
+              periodoPago,
+              apellidosBDT,
+              imagenBDTUrl,
+              pdfimagenUrl,
+              escolaridadBDT,
+              telefonoBDT,
+              generoBDT,
+              bdtID,
+              empresaID,
+              vacanteID,
+            };
+            const result = onChange(modelFields);
+            value = result?.salarioMaximo ?? value;
+          }
+          if (errors.salarioMaximo?.hasError) {
+            runValidationTasks("salarioMaximo", value);
+          }
+          setSalarioMaximo(value);
+        }}
+        onBlur={() => runValidationTasks("salarioMaximo", salarioMaximo)}
+        errorMessage={errors.salarioMaximo?.errorMessage}
+        hasError={errors.salarioMaximo?.hasError}
+        {...getOverrideProps(overrides, "salarioMaximo")}
+      ></TextField>
+      <ArrayField
+        onChange={async (items) => {
+          let values = items;
+          if (onChange) {
+            const modelFields = {
+              nombre,
+              descripcion,
+              numeroPlazas,
+              area,
+              tipoContrato,
+              modalidad,
+              diasLaborales,
+              edadMax,
+              edadMin,
+              genero,
+              experienciaLaboral,
+              escolaridad,
+              idioma,
+              nivelIdioma,
+              prestaciones,
+              habilidadesBlandas,
+              habilidadesTecnicas,
+              emailEmpresa,
+              visible,
+              ubicacion,
+              nombreEmpresa,
+              salarioMin,
+              salarioMaximo,
               idiomaConNivel: values,
               municipio,
               jornadaLaboral,
@@ -2170,7 +2170,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -2186,8 +2186,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio: value,
               jornadaLaboral,
@@ -2231,7 +2231,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -2247,8 +2247,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral: value,
@@ -2292,7 +2292,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -2308,8 +2308,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -2353,7 +2353,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -2369,8 +2369,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -2414,7 +2414,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -2430,8 +2430,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -2475,7 +2475,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -2491,8 +2491,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -2536,7 +2536,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -2552,8 +2552,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -2597,7 +2597,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -2613,8 +2613,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -2658,7 +2658,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -2674,8 +2674,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -2719,7 +2719,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -2735,8 +2735,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -2780,7 +2780,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -2796,8 +2796,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -2841,7 +2841,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -2857,8 +2857,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -2902,7 +2902,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -2918,8 +2918,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,
@@ -2963,7 +2963,7 @@ export default function OportunidadesCreateForm(props) {
               numeroPlazas,
               area,
               tipoContrato,
-              modaiidad,
+              modalidad,
               diasLaborales,
               edadMax,
               edadMin,
@@ -2979,8 +2979,8 @@ export default function OportunidadesCreateForm(props) {
               visible,
               ubicacion,
               nombreEmpresa,
-              salarioMaximo,
               salarioMin,
+              salarioMaximo,
               idiomaConNivel,
               municipio,
               jornadaLaboral,

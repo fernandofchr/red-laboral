@@ -7,24 +7,22 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export function LandingEmpresa() {
-  const [groupName, setGroupName] = useState('');
+
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchGroupName = async () => {
       const session = await Auth.currentSession();
       const userData = session.getIdToken().payload;
+      console.log(userData); 
       const groupName = userData['cognito:groups'][0];
-       setGroupName(groupName);
+      console.log(groupName);
+      if (groupName === 'trabajador') {
+        navigate('/inicio-bdt');
+      }
     };
     fetchGroupName();
   }, [])
-
-  useEffect(() => {
-    if (groupName == 'trabajador') {
-      navigate('/inicio-bdt');
-    }
-  }, [groupName]);
   
   
   return (

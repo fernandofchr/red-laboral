@@ -9,26 +9,23 @@ import { Auth } from 'aws-amplify'
 
 
 export default function LandingEmpresa() {
-  const [groupName, setGroupName] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchGroupName = async () => {
       const session = await Auth.currentSession();
       const userData = session.getIdToken().payload;
-      console.log(session);
+      console.log(userData); 
       const groupName = userData['cognito:groups'][0];
       console.log(groupName);
-       setGroupName(groupName);
+      if (groupName === 'Empresa') {
+        navigate('/inicio-empresa');
+      }
     };
     fetchGroupName();
   }, [])
 
-  useEffect(() => {
-    if (groupName == 'Empresa') {
-      navigate('/inicio-empresa');
-    }
-  }, [groupName]);
+ 
 
   return (
     <>

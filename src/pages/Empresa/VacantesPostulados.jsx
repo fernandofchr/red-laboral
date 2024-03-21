@@ -7,32 +7,22 @@ import { useNavigate } from "react-router-dom";
 import { Auth } from "aws-amplify";
 
 export function VacantesPostulados() {
-  const [groupName, setGroupName] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const session = await Auth.currentSession();
-        const userData = session.getIdToken().payload;
-        const groupName = userData['cognito:groups'][0];
-        setGroupName(groupName);
-        if (groupName !== 'Empresa') {
-          navigate('/error-sesion');
-        }
-      } catch (error) {
-        console.log(error);
-        navigate('/error-sesion');
+    const fetchGroupName = async () => {
+      const session = await Auth.currentSession();
+      const userData = session.getIdToken().payload;
+      console.log(userData); 
+      const groupName = userData['cognito:groups'][0];
+      console.log(groupName);
+      if (groupName === 'trabajador') {
+        navigate('/inicio-bdt');
       }
     };
-    checkAuth();
-  }, [groupName, navigate]);
+    fetchGroupName();
+  }, [])
 
-  useEffect(() => {
-    if (groupName == 'trabajador') {
-      navigate('/inicio-bdt');
-    }
-  }, [groupName]);
   return (
     <>
       <Header nombreDelGrupo="Empresa" />

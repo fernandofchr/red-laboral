@@ -18,7 +18,7 @@ export function RegistroEmpresa() {
         </DatosEmpresaProvider>
       )}
       {dataSession.session && nombreGrupo === 'trabajador' && dataSession.cuentaExistente === 0 && <Navigate to='/login-bdt' />}
-      {dataSession.session === false && <Navigate to='/' />}
+      
     </div>
   )
 }

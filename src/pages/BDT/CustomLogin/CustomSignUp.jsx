@@ -94,7 +94,7 @@ function CustomSignUp() {
       await Auth.confirmSignUp(email, confirmationCode);
       console.log("Confirmación exitosa");
       await Auth.signIn(email, password);
-      navigate('/inicio-bdt');
+      navigate('/registro-bdt');
     } catch (error) {
       console.log("Error al confirmar el usuario:", error);
     }
@@ -128,7 +128,9 @@ function CustomSignUp() {
           <Typography component="h1" variant="h5">
             Crear cuenta
           </Typography>
-          <Box component="form" noValidate onSubmit={isRegistered ? handleConfirmation : handleSignUp} sx={{ mt: 3 }}>
+
+          {!isRegistered ? (
+          <Box sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} >
                 {errorMessage && alertOpen && (
@@ -178,31 +180,19 @@ function CustomSignUp() {
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
               </Grid>
+              <Grid item xs={12}>
+              <Button
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+                onClick={handleSignUp}
+              >
+              Registrarme
+              </Button>
+              </Grid>
             </Grid>
             
-            {isRegistered && (
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="confirmationCode"
-                  label="Código de Confirmación"
-                  type="text"
-                  id="confirmationCode"
-                  autoComplete="off"
-                  value={confirmationCode}
-                  onChange={(e) => setConfirmationCode(e.target.value)}
-                />
-              </Grid>
-            )}
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              {isRegistered ? "Confirmar Registro" : "Registrarme"}
-            </Button>
+            
             <Divider> Ó </Divider>
 
             <Button
@@ -214,6 +204,35 @@ function CustomSignUp() {
               Crear cuenta con Facebook
             </Button>
           </Box>
+          ):(
+          <Box sm = {{ mt: 3}}>
+              <>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="confirmationCode"
+                  label="Código de Confirmación"
+                  type="text"
+                  id="confirmationCode"
+                  autoComplete="off"
+                  value={confirmationCode}
+                  onChange={(e) => setConfirmationCode(e.target.value)} />
+              </Grid>
+              <Grid item xs={12}>
+                  <Button
+                    fullWidth
+                    variant="contained"
+                    sx={{ mt: 3, mb: 2 }}
+                    onClick={handleConfirmation}
+                  >
+                    Registrarme
+                  </Button>
+                </Grid>
+                </>
+          </Box>
+          )}
+
         </Box>
         <Typography variant="body2" color="text.secondary" align="center">
           <Link color="inherit" >

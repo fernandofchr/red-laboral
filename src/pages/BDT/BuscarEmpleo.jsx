@@ -7,32 +7,22 @@ import { Auth } from "aws-amplify";
 import { useNavigate } from "react-router-dom";
 
 export function BuscarEmpleo() {
-  const [groupName, setGroupName] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const session = await Auth.currentSession();
-        const userData = session.getIdToken().payload;
-        const groupName = userData['cognito:groups'][0];
-        setGroupName(groupName);
-        if (groupName !== 'trabajador') {
-          navigate('/error-sesion');
-        }
-      } catch (error) {
-        console.log(error);
-        navigate('/error-sesion');
+    const fetchGroupName = async () => {
+      const session = await Auth.currentSession();
+      const userData = session.getIdToken().payload;
+      console.log(userData); 
+      const groupName = userData['cognito:groups'][0];
+      console.log(groupName);
+      if (groupName === 'Empresa') {
+        navigate('/inicio-empresa');
       }
     };
-    checkAuth();
-  }, [groupName, navigate]);
+    fetchGroupName();
+  }, [])
 
-  useEffect(() => {
-    if (groupName ==='Empresa') {
-      navigate('/inicio-Empresa');
-    }
-  }, [groupName]);
   return (
     <>
       <NavegadorBDT />

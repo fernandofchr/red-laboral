@@ -8,12 +8,13 @@ import {
   isSmallScreen,
   ButtonGroup,
   SimpleGrid,
+  Divider,
 } from "@chakra-ui/react";
 import { Footer } from "../../landing/Footer";
 import { Header } from "../../components/Header";
 import { Link } from "react-router-dom";
 import Buscador from "../../components/Buscador";
-
+import ReactPlayer from "react-player";
 import BasicBreadcrumbs from "../../landing/Breadcrumbs";
 
 export function PrincipalBdt() {
@@ -158,6 +159,25 @@ export function PrincipalBdt() {
           alt="Soriana"
         />
       </SimpleGrid>
+      <Box padding="9">
+        <Divider />
+      </Box>
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        mb={8}
+        pt={4}
+      >
+        <ReactPlayer
+          url="https://media.istockphoto.com/id/1304165649/es/v%C3%ADdeo/hombre-trabajando-en-computadora-con-gr%C3%A1fico-de-modernizaci%C3%B3n-anal%C3%ADtica-de-datos-empresariales.mp4?s=mp4-640x640-is&k=20&c=q1f-vF9OoGZcj3Ifw_5VVE8gmuaCC9MRhPSBVCuVWJk="
+          title="YouTube video player"
+          controls
+          loop
+          width="80%"
+          height="50%"
+        ></ReactPlayer>
+      </Box>
       <Footer />
     </Box>
   );

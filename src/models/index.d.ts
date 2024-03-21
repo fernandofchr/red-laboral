@@ -328,7 +328,7 @@ type EagerBDT = {
   readonly apellidos?: string | null;
   readonly curp?: string | null;
   readonly fechaNacimiento?: string | null;
-  readonly telefono?: string | null;
+  readonly telefono?: number | null;
   readonly escolaridad?: string | null;
   readonly genero?: string | null;
   readonly idioma?: (string | null)[] | null;
@@ -361,7 +361,7 @@ type LazyBDT = {
   readonly apellidos?: string | null;
   readonly curp?: string | null;
   readonly fechaNacimiento?: string | null;
-  readonly telefono?: string | null;
+  readonly telefono?: number | null;
   readonly escolaridad?: string | null;
   readonly genero?: string | null;
   readonly idioma?: (string | null)[] | null;

@@ -569,8 +569,8 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "nomrb": {
-                    "name": "nomrb",
+                "nombre": {
+                    "name": "nombre",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -743,8 +743,8 @@ export const schema = {
                     "attributes": [],
                     "isArrayNullable": true
                 },
-                "municpio": {
-                    "name": "municpio",
+                "municipio": {
+                    "name": "municipio",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -1310,5 +1310,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.4",
-    "version": "8500ab6fb64280b61dc1f01d891d9e59"
+    "version": "1f3ac16e17a6259237973ddd38ac0cc3"
 };

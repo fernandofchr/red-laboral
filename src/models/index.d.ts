@@ -180,7 +180,7 @@ type EagerVacante = {
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly nomrb?: string | null;
+  readonly nombre?: string | null;
   readonly descripcion?: string | null;
   readonly numeroPlazas?: number | null;
   readonly area?: string | null;
@@ -204,7 +204,7 @@ type EagerVacante = {
   readonly salarioMin?: number | null;
   readonly salarioMax?: number | null;
   readonly idiomaConNivel?: (string | null)[] | null;
-  readonly municpio?: string | null;
+  readonly municipio?: string | null;
   readonly jornadaLaboral?: string | null;
   readonly periodoPago?: string | null;
   readonly empresaID: string;
@@ -220,7 +220,7 @@ type LazyVacante = {
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly nomrb?: string | null;
+  readonly nombre?: string | null;
   readonly descripcion?: string | null;
   readonly numeroPlazas?: number | null;
   readonly area?: string | null;
@@ -244,7 +244,7 @@ type LazyVacante = {
   readonly salarioMin?: number | null;
   readonly salarioMax?: number | null;
   readonly idiomaConNivel?: (string | null)[] | null;
-  readonly municpio?: string | null;
+  readonly municipio?: string | null;
   readonly jornadaLaboral?: string | null;
   readonly periodoPago?: string | null;
   readonly empresaID: string;

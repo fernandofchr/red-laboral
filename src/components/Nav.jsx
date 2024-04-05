@@ -18,6 +18,8 @@ import { Link as RouterLink } from "react-router-dom";
 import logo from "../img/logo-sinfondo.png";
 import { useSession } from "../hooks/useSession";
 import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+
 
 export function Nav({ nombreDelGrupo = "Empresa" }) {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -27,6 +29,8 @@ export function Nav({ nombreDelGrupo = "Empresa" }) {
   const location = useLocation();
 
   const isActive = (path) => location.pathname === path;
+
+ 
 
   return (
     <Flex>

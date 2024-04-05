@@ -14,7 +14,6 @@ export function LandingEmpresa() {
     const fetchGroupName = async () => {
       const session = await Auth.currentSession();
       const userData = session.getIdToken().payload;
-      console.log(userData); 
       const groupName = userData['cognito:groups'][0];
       console.log(groupName);
       if (groupName === 'trabajador') {

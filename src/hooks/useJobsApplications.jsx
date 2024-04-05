@@ -72,7 +72,7 @@ export function useJobsApplications() {
       vacanteID: id,
       empresaID,
       apellidosBDT: bdt.apellidos,
-      telefonoBDT: parseInt(bdt.telefono),
+      telefonoBDT: bdt.telefono,
       generoBDT: bdt.genero,
       escolaridadBDT: bdt.escolaridad,
       pdfImagenUrl: bdt?.pdfImagenUrl || "",

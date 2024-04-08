@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Flex,
   Spacer,
@@ -15,25 +16,13 @@ import {
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { Link as RouterLink } from "react-router-dom";
-import logo from "../img/logo-sinfondo.png";
-import { useSession } from "../hooks/useSession";
-import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { Empresa } from "../models";
+import logo from "../../img/logo-sinfondo.png";
+import { useSession } from "../../hooks/useSession";
 
-
-export function Nav({ nombreDelGrupo}) {
+export function CustomNav({ nombreDelGrupo }) {
   const { colorMode, toggleColorMode } = useColorMode();
-  const { logOut, dataSession, nombreGrupo } = useSession("empresa");
+  const { logOut } = useSession("Empresa");
   const isSmallDevice = useBreakpointValue({ base: true, md: false });
-  const location = useLocation();
-  const [sesion, setsesion] = useState("Empresa")
-
-  const isActive = (path) => location.pathname === path;
-
-  useEffect(() => {
-     setsesion("Empresa")
-  }, [setsesion]);
 
   return (
     <Flex>
@@ -52,7 +41,7 @@ export function Nav({ nombreDelGrupo}) {
               variant="outline"
             />
             <MenuList>
-              {sesion && nombreGrupo === "Empresa" && (
+              {nombreDelGrupo === "Empresa" && (
                 <>
                   <MenuItem>
                     <Link as={RouterLink} to="/inicio-empresa">
@@ -69,24 +58,40 @@ export function Nav({ nombreDelGrupo}) {
                       Postulados
                     </Link>
                   </MenuItem>
-                  <MenuItem onClick={logOut}>Cerrar Sesión</MenuItem>
+
+                  <MenuItem>
+                    <Link as={RouterLink} to="/inicio-empresa/perfil">
+                      Perfil
+                    </Link>
+                  </MenuItem>
+
+                  <MenuItem>
+                    <Link
+                      color="#fff"
+                      onClick={logOut}
+                      _hover={{ color: "#79f0f7" }}
+                    >
+                      Cerrar Sesión
+                    </Link>
+                  </MenuItem>
+
                 </>
               )}
-              {dataSession?.sesion === false && (
+              {nombreDelGrupo === "OtroGrupo" && (
                 <>
                   <MenuItem>
-                    <Link as={RouterLink} to="/">
-                      Inicio
+                    <Link as={RouterLink} to="/opcion-a">
+                      Opción A
                     </Link>
                   </MenuItem>
                   <MenuItem>
-                    <Link as={RouterLink} to="/iniciop-bdt">
-                      Buscadores de trabajo
+                    <Link as={RouterLink} to="/opcion-b">
+                      Opción B
                     </Link>
                   </MenuItem>
                   <MenuItem>
-                    <Link as={RouterLink} to="/loginempresa">
-                      Empresas
+                    <Link as={RouterLink} to="/opcion-c">
+                      Opción C
                     </Link>
                   </MenuItem>
                 </>
@@ -95,37 +100,26 @@ export function Nav({ nombreDelGrupo}) {
           </Menu>
         ) : (
           <>
-            {sesion && nombreGrupo === "Empresa" && (
+            {nombreDelGrupo === "Empresa" && (
               <ButtonGroup>
                 <RouterLink to="/inicio-empresa">
-                  <Text
-                    color="#fff"
-                    _hover={{ color: "#79f0f7" }}
-                    style={
-                      isActive("/inicio-empresa") ? { color: "#79f0f7" } : null
-                    }
-                  >
+                  <Text color="#fff" _hover={{ color: "#79f0f7" }}>
                     Inicio
                   </Text>
                 </RouterLink>
                 <RouterLink to="/inicio-empresa/vacantes">
-                  <Text
-                    color="#fff"
-                    _hover={{ color: "#79f0f7" }}
-                    style={isActive("/inicio-empresa/vacantes") ? { color: "#79f0f7" } : null}
-                  >
+                  <Text color="#fff" _hover={{ color: "#79f0f7" }}>
                     Vacantes
                   </Text>
                 </RouterLink>
                 <RouterLink to="/inicio-empresa/postulados">
-                  <Text
-                    color="#fff"
-                    _hover={{ color: "#79f0f7" }}
-                    style={
-                      isActive("/inicio-empresa/postulados") ? { color: "#79f0f7" } : null
-                    }
-                  >
+                  <Text color="#fff" _hover={{ color: "#79f0f7" }}>
                     Postulados
+                  </Text>
+                </RouterLink>
+                <RouterLink to="/inicio-empresa/perfil">
+                  <Text color="#fff" _hover={{ color: "#79f0f7" }}>
+                    Perfil
                   </Text>
                 </RouterLink>
                 <Link
@@ -137,34 +131,23 @@ export function Nav({ nombreDelGrupo}) {
                 </Link>
               </ButtonGroup>
             )}
-            {dataSession.session === false && (
+            {nombreDelGrupo === "OtroGrupo" && (
               <ButtonGroup>
-                <Link
-                  color="#fff"
-                  href="/"
-                  _hover={{ color: "#79f0f7" }}
-                  style={isActive("/") ? { color: "#79f0f7" } : null}
-                >
-                  Inicio
-                </Link>
-                <Link
-                  color="#fff"
-                  href="/iniciop-bdt"
-                  _hover={{ color: "#79f0f7" }}
-                  style={isActive("/iniciop-bdt") ? { color: "#79f0f7" } : null}
-                >
-                  Buscadores de trabajo
-                </Link>
-                <Link
-                  color="#fff"
-                  href="/inicioempresa"
-                  _hover={{ color: "#79f0f7" }}
-                  style={
-                    isActive("/inicioempresa") ? { color: "#79f0f7" } : null
-                  }
-                >
-                  Empresas
-                </Link>
+                <RouterLink to="/opcion-a">
+                  <Text color="#fff" _hover={{ color: "#79f0f7" }}>
+                    Opción A
+                  </Text>
+                </RouterLink>
+                <RouterLink to="/opcion-b">
+                  <Text color="#fff" _hover={{ color: "#79f0f7" }}>
+                    Opción B
+                  </Text>
+                </RouterLink>
+                <RouterLink to="/opcion-c">
+                  <Text color="#fff" _hover={{ color: "#79f0f7" }}>
+                    Opción C
+                  </Text>
+                </RouterLink>
               </ButtonGroup>
             )}
           </>

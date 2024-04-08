@@ -33,6 +33,7 @@ import { TerminosBdt } from './components/AvisosTerminos/TerminosBdt'
 import { TerminosEmpresa } from './components/AvisosTerminos/TerminosEmpresa'
 import { MapaSitio } from './components/MapaSitio'
 import { PrincipalEmpresa } from './pages/Empresa/PrincipalEmpresa'
+import PerfilEmpresa from './pages/Empresa/PerfilEmpresa'
 
 Amplify.configure(awsExports)
 
@@ -124,6 +125,10 @@ const router = createBrowserRouter([
   {
     path: '/inicio-empresa/vacantes',
     element: <Vacantes />
+  },
+  {
+    path: '/inicio-empresa/perfil',
+    element: <PerfilEmpresa />
   },
   {
     path: '/inicio-empresa/vacantes/:id',

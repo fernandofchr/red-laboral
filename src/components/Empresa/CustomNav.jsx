@@ -18,14 +18,16 @@ import { MoonIcon, SunIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { Link as RouterLink } from "react-router-dom";
 import logo from "../../img/logo-sinfondo.png";
 import { useSession } from "../../hooks/useSession";
+import { useLocation } from "react-router-dom";
 
 export function CustomNav({ nombreDelGrupo }) {
   const { colorMode, toggleColorMode } = useColorMode();
   const { logOut } = useSession("Empresa");
   const isSmallDevice = useBreakpointValue({ base: true, md: false });
-
+  const location = useLocation();
+  const isActive = (path) => location.pathname === path;
   return (
-    <Flex>
+    <Flex bg="#181c24" p="1">
       <Link as={RouterLink} to="/">
         <Image src={logo} width={200} />
       </Link>
@@ -44,37 +46,57 @@ export function CustomNav({ nombreDelGrupo }) {
               {nombreDelGrupo === "Empresa" && (
                 <>
                   <MenuItem>
-                    <Link as={RouterLink} to="/inicio-empresa">
+                    <Link
+                      as={RouterLink}
+                      to="/inicio-empresa"
+                      color={colorMode === "light" ? "black" : "white"}
+                      style={
+                        isActive("/inicio-empresa")
+                          ? { color: "#79f0f7" }
+                          : null
+                      }
+                    >
                       Inicio
                     </Link>
                   </MenuItem>
                   <MenuItem>
-                    <Link as={RouterLink} to="/inicio-empresa/vacantes">
+                    <Link
+                      as={RouterLink}
+                      to="/inicio-empresa/vacantes"
+                      color={colorMode === "light" ? "black" : "white"}
+                    >
                       Vacantes
                     </Link>
                   </MenuItem>
                   <MenuItem>
-                    <Link as={RouterLink} to="/inicio-empresa/postulados">
+                    <Link
+                      as={RouterLink}
+                      to="/inicio-empresa/postulados"
+                      color={colorMode === "light" ? "black" : "white"}
+                    >
                       Postulados
                     </Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link as={RouterLink} to="/inicio-empresa/perfil">
+                    <Link
+                      as={RouterLink}
+                      to="/inicio-empresa/perfil"
+                      color={colorMode === "light" ? "black" : "white"}
+                    >
                       Perfil
                     </Link>
                   </MenuItem>
 
                   <MenuItem>
                     <Link
-                      color="#fff"
+                      color={colorMode === "light" ? "black" : "white"}
                       onClick={logOut}
                       _hover={{ color: "#79f0f7" }}
                     >
                       Cerrar Sesión
                     </Link>
                   </MenuItem>
-
                 </>
               )}
               {nombreDelGrupo === "OtroGrupo" && (
@@ -103,27 +125,57 @@ export function CustomNav({ nombreDelGrupo }) {
             {nombreDelGrupo === "Empresa" && (
               <ButtonGroup>
                 <RouterLink to="/inicio-empresa">
-                  <Text color="#fff" _hover={{ color: "#79f0f7" }}>
+                  <Text
+                    color={colorMode === "light" ? "white" : "white"}
+                    _hover={{ color: "#79f0f7" }}
+                    style={
+                      isActive("/inicio-empresa") ? { color: "#79f0f7" } : null
+                    }
+                  >
                     Inicio
                   </Text>
                 </RouterLink>
                 <RouterLink to="/inicio-empresa/vacantes">
-                  <Text color="#fff" _hover={{ color: "#79f0f7" }}>
+                  <Text
+                    color={colorMode === "light" ? "white" : "white"}
+                    _hover={{ color: "#79f0f7" }}
+                    style={
+                      isActive("/inicio-empresa/vacantes")
+                        ? { color: "#79f0f7" }
+                        : null
+                    }
+                  >
                     Vacantes
                   </Text>
                 </RouterLink>
                 <RouterLink to="/inicio-empresa/postulados">
-                  <Text color="#fff" _hover={{ color: "#79f0f7" }}>
+                  <Text
+                    color={colorMode === "light" ? "white" : "white"}
+                    _hover={{ color: "#79f0f7" }}
+                    style={
+                      isActive("/inicio-empresa/postulados")
+                        ? { color: "#79f0f7" }
+                        : null
+                    }
+                  >
                     Postulados
                   </Text>
                 </RouterLink>
                 <RouterLink to="/inicio-empresa/perfil">
-                  <Text color="#fff" _hover={{ color: "#79f0f7" }}>
+                  <Text
+                    color={colorMode === "light" ? "white" : "white"}
+                    _hover={{ color: "#79f0f7" }}
+                    style={
+                      isActive("/inicio-empresa/perfil")
+                        ? { color: "#79f0f7" }
+                        : null
+                    }
+                  >
                     Perfil
                   </Text>
                 </RouterLink>
                 <Link
-                  color="#fff"
+                  color={colorMode === "light" ? "white" : "white"}
                   onClick={logOut}
                   _hover={{ color: "#79f0f7" }}
                 >

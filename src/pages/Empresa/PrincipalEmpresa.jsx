@@ -14,6 +14,8 @@ import { Header } from "../../components/Header";
 import { Link } from "react-router-dom";
 import Buscador from "../../components/Buscador";
 import BasicBreadcrumbs from "../../landing/Breadcrumbs";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 export function PrincipalEmpresa() {
   const isSmallScreen = window.innerWidth <= 768;
@@ -34,7 +36,7 @@ export function PrincipalEmpresa() {
     `}
       </style>
       <Header />
-      <BasicBreadcrumbs/>
+      <BasicBreadcrumbs />
       <Box p={5}>
         <Buscador />
       </Box>

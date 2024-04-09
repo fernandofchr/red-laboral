@@ -57,7 +57,7 @@ export function PrincipalBdt() {
               borderRadius="5rem"
               objectFit="cover"
               src="https://media.istockphoto.com/id/669887538/es/foto/colegas-con-tablet-pc-en-f%C3%A1brica-textil.jpg?s=612x612&w=0&k=20&c=TJoVUdAeDKg0c_-4aCe6iO9YP9OBiU59TyMYlcnyz_E="
-              alt="Dan Abramov"
+              alt="RedLaboral"
             />
           </Stack>
         </Box>

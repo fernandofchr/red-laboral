@@ -21,18 +21,17 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Empresa } from "../models";
 
-
-export function Nav({ nombreDelGrupo}) {
+export function Nav({ nombreDelGrupo }) {
   const { colorMode, toggleColorMode } = useColorMode();
   const { logOut, dataSession, nombreGrupo } = useSession("empresa");
   const isSmallDevice = useBreakpointValue({ base: true, md: false });
   const location = useLocation();
-  const [sesion, setsesion] = useState("Empresa")
+  const [sesion, setsesion] = useState("Empresa");
 
   const isActive = (path) => location.pathname === path;
 
   useEffect(() => {
-     setsesion("Empresa")
+    setsesion("Empresa");
   }, [setsesion]);
 
   return (
@@ -112,7 +111,11 @@ export function Nav({ nombreDelGrupo}) {
                   <Text
                     color="#fff"
                     _hover={{ color: "#79f0f7" }}
-                    style={isActive("/inicio-empresa/vacantes") ? { color: "#79f0f7" } : null}
+                    style={
+                      isActive("/inicio-empresa/vacantes")
+                        ? { color: "#79f0f7" }
+                        : null
+                    }
                   >
                     Vacantes
                   </Text>
@@ -122,7 +125,9 @@ export function Nav({ nombreDelGrupo}) {
                     color="#fff"
                     _hover={{ color: "#79f0f7" }}
                     style={
-                      isActive("/inicio-empresa/postulados") ? { color: "#79f0f7" } : null
+                      isActive("/inicio-empresa/postulados")
+                        ? { color: "#79f0f7" }
+                        : null
                     }
                   >
                     Postulados

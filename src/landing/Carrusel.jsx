@@ -13,7 +13,7 @@ const MyCarousel = () => {
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 4
+      items: 3
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -35,7 +35,7 @@ const MyCarousel = () => {
     autoPlay={true}
     autoPlaySpeed={1500}
     keyBoardControl={true}
-    customTransition="all .10"
+    customTransition="all .5"
     transitionDuration={500}
     rewindWithAnimation={true}
     containerClass="carousel-container"

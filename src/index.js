@@ -36,6 +36,7 @@ import { PrincipalEmpresa } from './pages/Empresa/PrincipalEmpresa'
 import PerfilEmpresa from './pages/Empresa/PerfilEmpresa'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+import 'react-multi-carousel/lib/styles.css';
 
 Amplify.configure(awsExports)
 

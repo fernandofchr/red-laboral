@@ -1,22 +1,45 @@
 import React from 'react';
 // import Carousel from 'react-bootstrap/Carousel';
 import { Image } from '@chakra-ui/react';
-import { Carousel } from 'react-responsive-carousel';
+// import { Carousel } from 'react-responsive-carousel';
+import Carousel from "react-multi-carousel";
 
 const MyCarousel = () => {
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 4
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
   return (
     <Carousel
+    responsive={responsive}
+    swipeable={true}
+    draggable={true}
+    showDots={true}
+    infinite={true}
     autoPlay={true}
-    emulateTouch={true}
-    infiniteLoop={true}
-    centerMode={true}
-    centerSlidePercentage={28}
-    dynamicHeight={true}
-    thumbWidth={300}
-    interval={1000}
-    stopOnHover={false}
-    preventMovementUntilSwipeScrollTolerance={true}
-    showThumbs={true}
+    autoPlaySpeed={1500}
+    keyBoardControl={true}
+    customTransition="all .10"
+    transitionDuration={500}
+    containerClass="carousel-container"
+    removeArrowOnDeviceType={["tablet", "mobile"]}
+    dotListClass="custom-dot-list-style"
+    itemClass="carousel-item-padding-40-px"
     >
       
       <Image

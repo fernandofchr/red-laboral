@@ -34,6 +34,8 @@ import { TerminosEmpresa } from './components/AvisosTerminos/TerminosEmpresa'
 import { MapaSitio } from './components/MapaSitio'
 import { PrincipalEmpresa } from './pages/Empresa/PrincipalEmpresa'
 import PerfilEmpresa from './pages/Empresa/PerfilEmpresa'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 
 Amplify.configure(awsExports)
 

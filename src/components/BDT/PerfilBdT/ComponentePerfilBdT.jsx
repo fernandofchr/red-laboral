@@ -132,7 +132,7 @@ const ComponentePerfilBdT = ({ email, usuario, setUsuario, userID }) => {
           await deleteUserMail(userID);
 
           // Ambas operaciones se realizaron con éxito, puedes continuar
-          sendBajaFisica(usuario, email);
+          // sendBajaFisica(usuario, email);
           navigate("/");
           await DataStore.clear();
           localStorage.clear();

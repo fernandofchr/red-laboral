@@ -5,7 +5,7 @@ export  async function deleteUserMail(userId) {
     try {
       await Auth.currentSession().then(async (user) => {
         var token = user.idToken.jwtToken;
-        const url = process.env.REACT_APP_API_REDLABORAL + "/eliminarperfil";
+        const url = process.env.REACT_APP_API_REDLABORAL + "/eliminar-usuario";
         const requestOptions = {
           method: "DELETE",
           headers: {

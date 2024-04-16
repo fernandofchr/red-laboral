@@ -28,6 +28,7 @@ import { DATA_SESSION_STATE_INITIAL } from "../../../constants/EstadosIniciales"
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
+
 function NavegadorBDT({ setSession }) {
   const { getDataSessionBDT, setDataSession, dataSession } =
     useSession("trabajador");
@@ -72,6 +73,8 @@ function NavegadorBDT({ setSession }) {
       console.log("error signing out: ", error);
     }
   }
+
+
   const isLargeScreen = useBreakpointValue({ base: false, md: true });
   const isActive = (path) => location.pathname === path;
   return (

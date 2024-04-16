@@ -26,8 +26,13 @@ export function Oportunidad({ oportunidades }) {
   const [oportunidadSelected, setOportunidadSelected] = useState();
 
   const handleClickOpenVacante = (oportunidad) => {
-    setOportunidadSelected(oportunidad);
-    setIsOportunidadSelected(true);
+    if (isOportunidadSelected && oportunidadSelected === oportunidad) {
+      setIsOportunidadSelected(false);
+      setOportunidadSelected(null);
+    } else {
+      setOportunidadSelected(oportunidad);
+      setIsOportunidadSelected(true);
+    }
   };
   return (
     <Grid templateColumns={{ md: "1fr", xl: "repeat(2, 1fr)" }} gap="2rem">

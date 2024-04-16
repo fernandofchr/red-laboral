@@ -15,7 +15,7 @@ import { TagsDatosVacante } from "../Vacantes/TagsDatosVacante";
 export function DatosOportunidad({ oportunidad }) {
   return (
     <Flex justifyContent="center" p={2}>
-      <Card boxShadow="2xl" h="40rem" overflowY="scroll">
+      <Card boxShadow="2xl" h="30rem" overflowY="scroll">
         <CardHeader>
           <Flex justifyContent="space-between">
             <Box>

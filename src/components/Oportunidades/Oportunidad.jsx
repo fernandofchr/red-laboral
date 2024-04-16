@@ -30,13 +30,9 @@ export function Oportunidad({ oportunidades }) {
     setIsOportunidadSelected(true);
   };
   return (
-    <Grid
-      templateColumns={{ md: "1fr", xl: "repeat(2, 1fr)" }}
-      m="1rem 4rem 2rem"
-      gap="2rem"
-    >
+    <Grid templateColumns={{ md: "1fr", xl: "repeat(2, 1fr)" }} gap="2rem">
       <GridItem>
-        <Flex gap="2rem" flexDir="column">
+        <Flex gap="2rem" flexDir="column" p={2}>
           {oportunidades?.map((oportunidad) => {
             const {
               nombre,
@@ -61,7 +57,7 @@ export function Oportunidad({ oportunidades }) {
                 borderRadius="sm"
                 p="2"
                 transition="transform 0.3s"
-                _hover={{ transform: "scale(1.05)" }}
+                _hover={{ transform: "scale(0.95)" }}
               >
                 <CardHeader>
                   <Heading as="h3" size="md" pb="0">
@@ -109,7 +105,9 @@ export function Oportunidad({ oportunidades }) {
           <DatosOportunidad oportunidad={oportunidadSelected} />
         ) : (
           <SinVacantes hasButton={false}>
-            Selecciona una oportunidad para visualizar su información
+            <Text p={4} textAlign="justify">
+              Selecciona una oportunidad para visualizar su información
+            </Text>
           </SinVacantes>
         )}
       </GridItem>

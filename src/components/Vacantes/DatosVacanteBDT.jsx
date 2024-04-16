@@ -73,7 +73,7 @@ export function DatosVacanteBDT({ vacante }) {
                 Detalles de la vacante
               </Heading>
               <Grid
-                templateColumns="repeat(2, 1fr)"
+                templateColumns="repeat(1, 1fr)"
                 columnGap="4rem"
                 rowGap="1rem"
               >

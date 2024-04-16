@@ -14,7 +14,7 @@ import { TagsDatosVacante } from "../Vacantes/TagsDatosVacante";
 
 export function DatosOportunidad({ oportunidad }) {
   return (
-    <Flex justifyContent="center">
+    <Flex justifyContent="center" p={2}>
       <Card boxShadow="2xl" h="40rem" overflowY="scroll">
         <CardHeader>
           <Flex justifyContent="space-between">
@@ -36,7 +36,7 @@ export function DatosOportunidad({ oportunidad }) {
                 Detalles de la oportunidad
               </Heading>
               <Grid
-                templateColumns="repeat(2, 1fr)"
+                templateColumns="repeat(1, 1fr)"
                 columnGap="4rem"
                 rowGap="1rem"
               >

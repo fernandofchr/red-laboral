@@ -41,7 +41,7 @@
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
-        "mfaConfiguration": "OFF",
+        "mfaConfiguration": "ON",
         "mfaTypes": [
           "TOTP"
         ],
@@ -55,9 +55,7 @@
           "passwordPolicyMinLength": 8
         },
         "signupAttributes": [],
-        "socialProviders": [
-          "FACEBOOK"
-        ],
+        "socialProviders": [],
         "usernameAttributes": [
           "EMAIL"
         ],

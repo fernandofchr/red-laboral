@@ -187,16 +187,8 @@ export function NavMedium() {
         </Text>
       </Box>
 
-              {/* Aqui va a ir el carousel */}        
+      <Carousel />
 
-      <div style={{ width: '100%', height: 'auto' }}>
-      <Carousel/>
-      </div>
-
-    
-
-
-      
       <Box padding="9">
         <Divider />
       </Box>

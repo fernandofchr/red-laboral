@@ -41,7 +41,7 @@ function Error() {
         leftIcon={<ArrowBackIcon />}
         mt={8}
       >
-        Volver a la página anterior
+        Ir a inicio
       </Button>
     </Flex>
   );

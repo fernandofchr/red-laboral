@@ -27,6 +27,8 @@ const Buscador = () => {
     "Terminos y condiciones de empleados": "/terminos-bdt",
     "Aviso de privacidad empleados": "/aviso-bdt",
     "Oportunidades laborales": "/inicio-bdt/oportunidades-laborales",
+    "Registro empresa": "/login-empresa",
+    "Registro trabajador": "/login-bdt",
   };
 
   const handleInputChange = (event) => {

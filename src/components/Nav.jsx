@@ -24,7 +24,10 @@ import { Empresa } from "../models";
 export function Nav({ nombreDelGrupo }) {
   const { colorMode, toggleColorMode } = useColorMode();
   const { logOut, dataSession, nombreGrupo } = useSession("empresa");
-  const isSmallDevice = useBreakpointValue({ base: true, md: false });
+  const isSmallDevice = useBreakpointValue({
+    base: true,
+    md: false,
+  });
   const location = useLocation();
   const [sesion, setsesion] = useState("Empresa");
 
@@ -71,25 +74,35 @@ export function Nav({ nombreDelGrupo }) {
                   <MenuItem onClick={logOut}>Cerrar Sesión</MenuItem>
                 </>
               )}
-              {dataSession?.sesion === false && (
-                <>
-                  <MenuItem>
-                    <Link as={RouterLink} to="/">
-                      Inicio
-                    </Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link as={RouterLink} to="/iniciop-bdt">
-                      Buscadores de trabajo
-                    </Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link as={RouterLink} to="/loginempresa">
-                      Empresas
-                    </Link>
-                  </MenuItem>
-                </>
-              )}
+              <>
+                <MenuItem>
+                  <Link
+                    as={RouterLink}
+                    to="/"
+                    color={colorMode === "light" ? "black" : "white"}
+                  >
+                    Inicio
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link
+                    color={colorMode === "light" ? "black" : "white"}
+                    as={RouterLink}
+                    to="/iniciop-bdt"
+                  >
+                    Buscadores de trabajo
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link
+                    color={colorMode === "light" ? "black" : "white"}
+                    as={RouterLink}
+                    to="/inicioempresa"
+                  >
+                    Empresas
+                  </Link>
+                </MenuItem>
+              </>
             </MenuList>
           </Menu>
         ) : (

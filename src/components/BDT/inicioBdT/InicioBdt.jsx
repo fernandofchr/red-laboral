@@ -104,6 +104,13 @@ export function InicioBdt() {
           alignItems="center"
           justifyContent="center"
           bg="transparent"
+          templateColumns={{
+            base: "1fr",
+            sm: "repeat(2, 1fr)",
+            md: "repeat(3, 1fr)",
+            lg: "repeat(5, 1fr)",
+            xl: "repeat(6, 1fr)",
+          }}
         >
           <Stack direction="row" pb="5" pt="5">
             <a href="" target="_blank">

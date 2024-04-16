@@ -8,7 +8,7 @@
     "autoVerifiedAttributes": [
       "email"
     ],
-    "mfaConfiguration": "OPTIONAL",
+    "mfaConfiguration": "OFF",
     "mfaTypes": [
       "TOTP"
     ],

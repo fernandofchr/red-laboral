@@ -116,6 +116,7 @@ function NavegadorBDT({ setSession }) {
                   ? { color: "#79f0f7" }
                   : null
               }
+              color={colorMode === "light" ? "black" : "white"}
             >
               Oportunidades laborales
             </Link>
@@ -131,7 +132,7 @@ function NavegadorBDT({ setSession }) {
             />
             <MenuList>
               <MenuItem
-                color="#fff"
+                color={colorMode === "light" ? "black" : "white"}
                 to="/inicio-bdt"
                 _hover={{ color: "#79f0f7" }}
               >
@@ -140,14 +141,14 @@ function NavegadorBDT({ setSession }) {
               <MenuItem
                 as={RouterLink}
                 to="/inicio-bdt/buscar-empleo"
-                color="#fff"
+                color={colorMode === "light" ? "black" : "white"}
               >
                 Buscar empleo
               </MenuItem>
               <MenuItem
                 as={RouterLink}
                 to="/inicio-bdt/oportunidades-laborales"
-                color="#fff"
+                color={colorMode === "light" ? "black" : "white"}
               >
                 Oportunidades laborales
               </MenuItem>

@@ -34,7 +34,7 @@ export function PrincipalEmpresa() {
     `}
       </style>
       <Header />
-      <BasicBreadcrumbs/>
+      <BasicBreadcrumbs />
       <Box p={5}>
         <Buscador />
       </Box>
@@ -81,10 +81,14 @@ export function PrincipalEmpresa() {
                 <Button
                   bg="#181c24"
                   color="white"
-                  _hover={{ bg: "white", color: "#181c24" }}
+                  _hover={{
+                    bg: "white",
+                    color: "#181c24",
+                  }}
+                  transition="background-color 3s, color 3s"
                   fontSize="25px"
                 >
-                  Registrate
+                  Regístrate
                 </Button>
               </Link>
             </ButtonGroup>
@@ -112,42 +116,42 @@ export function PrincipalEmpresa() {
         }}
       >
         <Image
-          boxSize="200px"
+          boxSize="180px"
           objectFit="cover"
           borderRadius="full"
           src="https://media.istockphoto.com/id/1332693985/es/foto/trabajadores-haciendo-ejercicios-de-estiramiento-en-una-reuni%C3%B3n-de-negocios-en-la-oficina.jpg?s=612x612&w=0&k=20&c=586rR0LOPRSWWltqbmYRAQtX-txCm0plvUErNpQhZKo="
           alt="Empleados"
         />
         <Image
-          boxSize="200px"
+          boxSize="180px"
           objectFit="cover"
           borderRadius="full"
           src="https://media.istockphoto.com/id/1450480638/es/foto/dos-trabajadores-industriales-metalististas-con-tableta-en-una-f%C3%A1brica-de-fabricaci%C3%B3n.jpg?s=612x612&w=0&k=20&c=d6LqZtsmZ6FM6W6F2QYMHUUk-DMqP1Ob6FXgi4-swuM="
           alt="Empleados"
         />
         <Image
-          boxSize="200px"
+          boxSize="180px"
           objectFit="cover"
           borderRadius="full"
           src="https://media.istockphoto.com/id/1480281331/es/foto/joven-mujer-negra-que-trabaja-en-una-computadora-port%C3%A1til-en-la-oficina-creativa-por-la-noche.jpg?s=612x612&w=0&k=20&c=KC0Idd4ppiBxxwj3i8JGxWBgXf3RvFzqUvUZGMnFAoI="
           alt="Empleados"
         />
         <Image
-          boxSize="200px"
+          boxSize="180px"
           objectFit="cover"
           borderRadius="full"
           src="https://media.istockphoto.com/id/1185007236/es/foto/mujer-de-negocios-relajarse-al-aire-libre.jpg?s=612x612&w=0&k=20&c=SNNk2kcCkE10X06qYmtsJ3_Spbt5Knv-XFgiEBU9GWc="
           alt="Empleados"
         />
         <Image
-          boxSize="200px"
+          boxSize="180px"
           objectFit="cover"
           borderRadius="full"
           src="https://media.istockphoto.com/id/1464340066/es/foto/el-trabajador-industrial-trabaja-con-un-compa%C3%B1ero-de-trabajo-en-el-patio-de-contenedores-de.jpg?s=612x612&w=0&k=20&c=bB3os-7pzlRHMfFXBCGnHToQ-kRqFXw2lA-ZSzY068A="
           alt="Empleados"
         />
         <Image
-          boxSize="200px"
+          boxSize="180px"
           objectFit="cover"
           borderRadius="full"
           src="https://media.istockphoto.com/id/1438213571/es/foto/nuevo-acuerdo-comercial.jpg?s=612x612&w=0&k=20&c=hZkV46eRL22FlHnS7her4yXWa9bWewynRqPsj3M6w1U="

@@ -1,46 +1,27 @@
 import { useEffect, useState } from "react";
-import { Header } from "../../components/Header";
-import {
-  Flex,
-  Grid,
-  GridItem,
-  Heading,
-  Select,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
-import { SinVacantes } from "../../components/Vacantes/SinVacantes";
-import { Vacante } from "../../components/Vacantes/Vacante";
-import { ButtonVacante } from "../../components/ButtonVacante";
-import { useManageVacantes } from "../../hooks/useManageVacantes";
-import { Footer } from "../../landing/Footer";
-import { useSession } from "../../hooks/useSession";
-import BasicBreadcrumbs from "../../landing/Breadcrumbs";
-import { useNavigate } from "react-router-dom";
+import EmpresaPerfil from "../../components/Empresa/PerfilEmpresa/EmpresaPerfil";
 import { Auth } from "aws-amplify";
+import { NombreGrupo } from "../../hooks/NombreGrupo";
+import { Navigate } from "react-router-dom";
+import { DataStore } from "@aws-amplify/datastore";
+import { Empresa } from "../../models";
+import Loading2 from "../../components/Loading2";
+import BasicBreadcrumbs from "../../landing/Breadcrumbs";
+import { CustomNav } from "../../components/Empresa/CustomNav";
+import { useSession } from "../../hooks/useSession";
 import Swal from "sweetalert2";
-import { DataStore } from "aws-amplify";
 import { DATA_SESSION_STATE_INITIAL } from "../../constants/EstadosIniciales";
+import { useNavigate } from "react-router-dom";
 
-export function Vacantes() {
-  const [groupName, setGroupName] = useState('');
-  const navigate= useNavigate()
-  const {
-    listVacantes,
-    vacantesVisibles,
-    vacantesNoVisibles,
-    listVacantesNoVisibles,
-    isVacanteVisible,
-    handleChangeVacanteStatus,
-  } = useManageVacantes();
+function PerfilEmpresa() {
+  const [nombreGrupo, setNombreGrupo] = useState("");
+  const [session, setSession] = useState("");
+  const [emprData, setEmprData] = useState("");
+  const [user, setUser] = useState("");
+  const [email, setEmail] = useState("");
   const { getDataSessionBDT, setDataSession, dataSession } =
   useSession("Empresa");
-
-  useEffect(() => {
-    if (isVacanteVisible) listVacantes({ emailEmpresa: dataSession.email });
-    else listVacantesNoVisibles({ emailEmpresa: dataSession.email });
-  }, []);
-
+  const navigate = useNavigate();
 
   
   useEffect(() => {
@@ -173,74 +154,78 @@ useEffect(() => {
 
   return () => clearTimeout(timeoutId); // Limpiar el timeout en caso de que el componente se desmonte antes de que se ejecute
 }, []);
-  
+
+  //BDE
   useEffect(() => {
-    const delay = 700; // 5 segundos en milisegundos
-  
-    const fetchGroupName = async () => {
+    async function saves() {
       try {
-        const session = await Auth.currentSession();
-        const userData = session.getIdToken().payload;
-        console.log(userData); 
-        const groupName = userData['cognito:groups'][0];
-        console.log(groupName);
-        if (groupName === 'trabajador') {
-          navigate('/inicio-bdt');
-        }
+        await Auth.currentAuthenticatedUser().then(async (user) => {
+          await setSession(true);
+          await NombreGrupo(user.username, "Empresa", setNombreGrupo);
+          await setEmail(user.attributes.email);
+          await setUser(user.username); // establecer user.username en el estado del usuario
+          const sub = DataStore.observeQuery(
+            Empresa,
+            (c) => c.email.eq(user.attributes.email),
+            { limit: 1 }
+          ).subscribe(({ items }) => {
+            setEmprData(items[0]);
+          });
+          return () => {
+            sub.unsubscribe();
+          };
+        });
       } catch (error) {
-        console.log("No hay Grupo" + error);
+        console.log(error);
       }
-    };
-  
-    const timeoutId = setTimeout(fetchGroupName, delay);
-  
-    return () => clearTimeout(timeoutId); // Limpiar el timeout en caso de que el componente se desmonte antes de que se ejecute
+    }
+    saves();
   }, []);
 
+  useEffect(() => {
+    console.log(emprData);
+  }, [emprData]);
+
+  if (!nombreGrupo) {
+    if (session) {
+      return <Loading2 />;
+    }
+  }
+
   return (
-    <>
-      <Header nombreDelGrupo={"Empresa"} />
-      <BasicBreadcrumbs/>
-      <Stack mt="2rem" p={5}>
-        <Heading as="h2" size="2xl">
-          Vacantes
-        </Heading>
-        <Text fontSize="xl" textAlign={"justify"}>
-          En esta sección podrás administrar tus vacantes
-        </Text>
-        <Grid>
-          <GridItem>
-            <Text fontSize="md" as="i" opacity="0.8">
-              {isVacanteVisible
-                ? `${vacantesVisibles.length} resultados`
-                : `${vacantesNoVisibles.length} resultados`}
-            </Text>
-          </GridItem>
-          <GridItem>
-            <Flex flexDir="column" alignItems="end" gap="1rem" mr="2rem">
-              <ButtonVacante to="/registro-vacante">
-                Crear una vacante
-              </ButtonVacante>
-              <Select w="12rem" onChange={handleChangeVacanteStatus}>
-                <option value="activas">Vacantes activas</option>
-                <option value="inactivas">Vacantes inactivas</option>
-              </Select>
-            </Flex>
-          </GridItem>
-        </Grid>
-      </Stack>
-      {isVacanteVisible ? (
-        vacantesVisibles.length ? (
-          <Vacante vacantes={vacantesVisibles} />
-        ) : (
-          <SinVacantes>Aún no has registrado ninguna vacante</SinVacantes>
-        )
-      ) : vacantesNoVisibles.length ? (
-        <Vacante vacantes={vacantesNoVisibles} />
+    <div>
+      {session ? (
+        <>
+          {nombreGrupo === "Empresa" ? (
+            <>
+              {emprData !== "" && emprData !== undefined ? (
+                <>
+                  <CustomNav nombreDelGrupo={nombreGrupo} />
+                  <BasicBreadcrumbs />
+                  <EmpresaPerfil
+                    email={email}
+                    userID={user}
+                    empresa={emprData}
+                    setEmpresa={emprData}
+                  />
+                </>
+              ) : (
+                <></>
+              )}
+            </>
+          ) : nombreGrupo === "trabajador" ? (
+            <Navigate to="/login-bdt" />
+          ) : (
+            <></>
+          )}
+        </>
+      ) : session === false ? (
+        <Navigate to="/login-empresa" />
       ) : (
-        <SinVacantes>Aún no has registrado ninguna vacante</SinVacantes>
+        <></>
       )}
-      <Footer />
-    </>
+    </div>
   );
 }
+
+export default PerfilEmpresa;

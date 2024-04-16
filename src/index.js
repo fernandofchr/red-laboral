@@ -33,6 +33,10 @@ import { TerminosBdt } from './components/AvisosTerminos/TerminosBdt'
 import { TerminosEmpresa } from './components/AvisosTerminos/TerminosEmpresa'
 import { MapaSitio } from './components/MapaSitio'
 import { PrincipalEmpresa } from './pages/Empresa/PrincipalEmpresa'
+import PerfilEmpresa from './pages/Empresa/PerfilEmpresa'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+import 'react-multi-carousel/lib/styles.css';
 
 Amplify.configure(awsExports)
 
@@ -124,6 +128,10 @@ const router = createBrowserRouter([
   {
     path: '/inicio-empresa/vacantes',
     element: <Vacantes />
+  },
+  {
+    path: '/inicio-empresa/perfil',
+    element: <PerfilEmpresa />
   },
   {
     path: '/inicio-empresa/vacantes/:id',

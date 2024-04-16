@@ -18,15 +18,24 @@ import { Link as RouterLink } from "react-router-dom";
 import logo from "../img/logo-sinfondo.png";
 import { useSession } from "../hooks/useSession";
 import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Empresa } from "../models";
 
-export function Nav({ nombreDelGrupo = "Empresa" }) {
+export function Nav({ nombreDelGrupo }) {
   const { colorMode, toggleColorMode } = useColorMode();
-  const nombreDelGrupoNew = nombreDelGrupo || "Empresa";
-  const { logOut, dataSession, nombreGrupo } = useSession(nombreDelGrupoNew);
-  const isSmallDevice = useBreakpointValue({ base: true, md: false });
+  const { logOut, dataSession, nombreGrupo } = useSession("empresa");
+  const isSmallDevice = useBreakpointValue({
+    base: true,
+    md: false,
+  });
   const location = useLocation();
+  const [sesion, setsesion] = useState("Empresa");
 
   const isActive = (path) => location.pathname === path;
+
+  useEffect(() => {
+    setsesion("Empresa");
+  }, [setsesion]);
 
   return (
     <Flex>
@@ -45,7 +54,7 @@ export function Nav({ nombreDelGrupo = "Empresa" }) {
               variant="outline"
             />
             <MenuList>
-              {dataSession.session && nombreGrupo === "Empresa" && (
+              {sesion && nombreGrupo === "Empresa" && (
                 <>
                   <MenuItem>
                     <Link as={RouterLink} to="/inicio-empresa">
@@ -65,30 +74,40 @@ export function Nav({ nombreDelGrupo = "Empresa" }) {
                   <MenuItem onClick={logOut}>Cerrar Sesión</MenuItem>
                 </>
               )}
-              {dataSession?.session === false && (
-                <>
-                  <MenuItem>
-                    <Link as={RouterLink} to="/">
-                      Inicio
-                    </Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link as={RouterLink} to="/iniciop-bdt">
-                      Buscadores de trabajo
-                    </Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link as={RouterLink} to="/loginempresa">
-                      Empresas
-                    </Link>
-                  </MenuItem>
-                </>
-              )}
+              <>
+                <MenuItem>
+                  <Link
+                    as={RouterLink}
+                    to="/"
+                    color={colorMode === "light" ? "black" : "white"}
+                  >
+                    Inicio
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link
+                    color={colorMode === "light" ? "black" : "white"}
+                    as={RouterLink}
+                    to="/iniciop-bdt"
+                  >
+                    Buscadores de trabajo
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link
+                    color={colorMode === "light" ? "black" : "white"}
+                    as={RouterLink}
+                    to="/inicioempresa"
+                  >
+                    Empresas
+                  </Link>
+                </MenuItem>
+              </>
             </MenuList>
           </Menu>
         ) : (
           <>
-            {dataSession.session && nombreGrupo === "Empresa" && (
+            {sesion && nombreGrupo === "Empresa" && (
               <ButtonGroup>
                 <RouterLink to="/inicio-empresa">
                   <Text
@@ -105,7 +124,11 @@ export function Nav({ nombreDelGrupo = "Empresa" }) {
                   <Text
                     color="#fff"
                     _hover={{ color: "#79f0f7" }}
-                    style={isActive("/inicio-empresa/vacantes") ? { color: "#79f0f7" } : null}
+                    style={
+                      isActive("/inicio-empresa/vacantes")
+                        ? { color: "#79f0f7" }
+                        : null
+                    }
                   >
                     Vacantes
                   </Text>
@@ -115,7 +138,9 @@ export function Nav({ nombreDelGrupo = "Empresa" }) {
                     color="#fff"
                     _hover={{ color: "#79f0f7" }}
                     style={
-                      isActive("/inicio-empresa/postulados") ? { color: "#79f0f7" } : null
+                      isActive("/inicio-empresa/postulados")
+                        ? { color: "#79f0f7" }
+                        : null
                     }
                   >
                     Postulados

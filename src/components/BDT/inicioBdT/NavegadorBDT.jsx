@@ -28,6 +28,7 @@ import { DATA_SESSION_STATE_INITIAL } from "../../../constants/EstadosIniciales"
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
+
 function NavegadorBDT({ setSession }) {
   const { getDataSessionBDT, setDataSession, dataSession } =
     useSession("trabajador");
@@ -72,6 +73,8 @@ function NavegadorBDT({ setSession }) {
       console.log("error signing out: ", error);
     }
   }
+
+
   const isLargeScreen = useBreakpointValue({ base: false, md: true });
   const isActive = (path) => location.pathname === path;
   return (
@@ -116,6 +119,7 @@ function NavegadorBDT({ setSession }) {
                   ? { color: "#79f0f7" }
                   : null
               }
+              color={colorMode === "light" ? "black" : "white"}
             >
               Oportunidades laborales
             </Link>
@@ -131,7 +135,7 @@ function NavegadorBDT({ setSession }) {
             />
             <MenuList>
               <MenuItem
-                color="#fff"
+                color={colorMode === "light" ? "black" : "white"}
                 to="/inicio-bdt"
                 _hover={{ color: "#79f0f7" }}
               >
@@ -140,14 +144,14 @@ function NavegadorBDT({ setSession }) {
               <MenuItem
                 as={RouterLink}
                 to="/inicio-bdt/buscar-empleo"
-                color="#fff"
+                color={colorMode === "light" ? "black" : "white"}
               >
                 Buscar empleo
               </MenuItem>
               <MenuItem
                 as={RouterLink}
                 to="/inicio-bdt/oportunidades-laborales"
-                color="#fff"
+                color={colorMode === "light" ? "black" : "white"}
               >
                 Oportunidades laborales
               </MenuItem>

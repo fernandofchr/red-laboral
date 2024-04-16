@@ -1,86 +1,180 @@
 import React, { useState } from "react";
 import { Auth } from "aws-amplify";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "@aws-amplify/ui-react/styles.css";
-import { Button, TextField } from '@mui/material';
-import Avatar from '@mui/material/Avatar';
-import CssBaseline from '@mui/material/CssBaseline';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Button, TextField } from "@mui/material";
+import { FormLabel, FormControl, Alert } from "@mui/material";
+import Typography from "@mui/material/Typography";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      <Link color="inherit" >
-        Red Laboral
-      </Link>{' / '}
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      <Link color="inherit">Red Laboral</Link>
+      {" / "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
 
 const defaultTheme = createTheme();
 
-function CustomSignUp() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+function CustomForgotPass() {
+  const [username, setUsername] = useState("");
+  const [code, setCode] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [isCodeSent, setIsCodeSent] = useState(false);
+  const [isPasswordReset, setIsPasswordReset] = useState(false);
+  const [passwordValid, setPasswordValid] = useState(true);
+  const [passwordErrorMessage, setPasswordErrorMessage] = useState("");
+
+  const handleSendCode = async () => {
+    try {
+      let normalizedUsername = username;
+      await Auth.forgotPassword(normalizedUsername);
+      setIsCodeSent(true);
+    } catch (error) {
+      console.log("Error al enviar el código de recuperación:", error);
+    }
+  };
+
+  const handleResetPassword = async () => {
+    try {
+      let normalizedUsername = username;
+      await Auth.forgotPasswordSubmit(normalizedUsername, code, newPassword);
+      setIsPasswordReset(true);
+    } catch (error) {
+      console.log("Error al restablecer la contraseña:", error);
+    }
+  };
+
+  const validatePassword = (value) => {
+    const passwordRegex =
+      /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[-_@$!%*#?&])[A-Za-z\d-_@$!%*#?&]{8,}$/;
+    if (!passwordRegex.test(value)) {
+      setPasswordErrorMessage(
+        "La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula, un número y un símbolo (- _ @ $ ! % * # ? &)."
+      );
+      setPasswordValid(false);
+      return false;
+    }
+    setPasswordErrorMessage("");
+    setPasswordValid(true);
+    return true;
   };
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 2,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Typography component="h1" variant="h5">
-          Ingrese la información:
-          </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="email"
-                  label="Correo Electronico"
-                  name="email"
-                  autoComplete="email"
-                />
-              </Grid>
-            </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+      <div>
+        {isPasswordReset ? (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <h2
+              className="text-center"
+              style={{ marginBottom: "2rem", color: "black" }}
             >
-              Enviar Codigo 
+              Contraseña restablecida correctamente.
+            </h2>
+          </div>
+        ) : isCodeSent ? (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <h2
+              className="text-center"
+              style={{ marginBottom: "2rem", color: "black" }}
+            >
+              Ingrese el código de verificación y su nueva contraseña.
+            </h2>
+            <FormControl style={{ marginBottom: "1rem", width: "80%" }}>
+              <FormLabel>Código de verificación</FormLabel>
+              <TextField
+                variant="outlined"
+                type="number"
+                placeholder="Código de verificación"
+                value={code}
+                onChange={(e) => setCode(e.target.value)}
+              />
+            </FormControl>
+            <FormControl style={{ marginBottom: "1rem", width: "80%" }}>
+              <FormLabel>Ingrese nueva contraseña</FormLabel>
+              <TextField
+                variant="outlined"
+                type="password"
+                placeholder="Nueva contraseña"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                onBlur={() => validatePassword(newPassword)}
+              />
+            </FormControl>
+
+            {!passwordValid && (
+              <Alert severity="error" style={{ width: "80%" }}>
+                {passwordErrorMessage}
+              </Alert>
+            )}
+
+            <Button
+              onClick={handleResetPassword}
+              style={{
+                marginTop: "1.5rem",
+                backgroundColor: "blue",
+                color: "white",
+                height: "60px",
+              }}
+            >
+              Restablecer contraseña
             </Button>
-            <Grid container justifyContent="flex-end">
-            </Grid>
-          </Box>
-        </Box>
-        <Copyright sx={{ mt: 5 }} />
-      </Container>
+          </div>
+        ) : (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <FormControl style={{ marginBottom: "1rem", width: "80%" }}>
+              <FormLabel>Telefono/Email</FormLabel>
+              <TextField
+                variant="outlined"
+                placeholder="Ingrese teléfono o correo"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+            </FormControl>
+            <Button
+              onClick={handleSendCode}
+              style={{
+                marginTop: "1.5rem",
+                backgroundColor: "blue",
+                color: "white",
+                width: "80%",
+                height: "60px",
+              }}
+            >
+              Enviar código de verificación
+            </Button>
+          </div>
+        )}
+      </div>
     </ThemeProvider>
   );
 }
-export default CustomSignUp
+export default CustomForgotPass;

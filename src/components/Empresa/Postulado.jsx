@@ -32,12 +32,17 @@ export function Postulado({ postulados }) {
   };
   return (
     <Grid
-      templateColumns={{ md: "1fr", xl: "repeat(2, 1fr)" }}
-      m="1rem 4rem 2rem"
+      templateColumns={{
+        base: "repeat(1, 1fr)",
+        sm: "repeat(1, 1fr)",
+        md: "repeat(2, 1fr)",
+        lg: "repeat(2, 1fr)",
+      }}
       gap="2rem"
+      p="5"
     >
-      <GridItem>
-        <Flex gap="2rem" flexDir="column">
+      <>
+        <Flex gap="1rem" flexDir="column">
           {postulados?.map((postulado) => {
             const {
               nombre,
@@ -60,15 +65,19 @@ export function Postulado({ postulados }) {
                 cursor="pointer"
                 key={id}
                 borderRadius="sm"
-                p="2"
-                transition="transform 0.3s"
-                _hover={{ transform: "scale(1.05)" }}
+                width={{
+                  base: "repeat(1, 1fr)",
+                  sm: "repeat(1, 1fr)",
+                  xs: "21rem",
+                  md: "repeat(2, 1fr)",
+                  lg: "10rem",
+                }}
               >
                 <CardHeader>
-                  <Heading as="h3" size="md" p="0">
+                  <Heading as="h3" size="md">
                     {nombreBDT}
                   </Heading>
-                  <Text fontWeight="bold">Información del usuario: </Text>
+                  <Text fontWeight="bold">Información del usuario</Text>
                 </CardHeader>
                 <CardBody>
                   <Stack>
@@ -105,13 +114,13 @@ export function Postulado({ postulados }) {
             );
           })}
         </Flex>
-      </GridItem>
+      </>
       <GridItem alignSelf="start">
         {isPostuladoSelected ? (
           <DatosPostulado postulado={postuladoSelected} />
         ) : (
           <SinVacantes hasButton={false}>
-            <Text textAlign={"justify"}>
+            <Text textAlign={"justify"} p="2">
               Selecciona al usuario para ver su información e información de la
               vacante
             </Text>

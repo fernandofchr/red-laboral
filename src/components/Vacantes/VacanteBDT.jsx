@@ -26,17 +26,18 @@ export function VacanteBDT({ vacantes }) {
   const [vacanteSelected, setVacanteSelected] = useState();
 
   const handleClickOpenVacante = (vacante) => {
-    setVacanteSelected(vacante);
-    setIsVacanteSelected(true);
+    if (isVacanteSelected && vacanteSelected === vacante) {
+      setIsVacanteSelected(false);
+      setVacanteSelected(null);
+    } else {
+      setVacanteSelected(vacante);
+      setIsVacanteSelected(true);
+    }
   };
   return (
-    <Grid
-      templateColumns={{ md: "1fr", xl: "repeat(2, 1fr)" }}
-      m="1rem 4rem 2rem"
-      gap="2rem"
-    >
+    <Grid templateColumns={{ md: "1fr", xl: "repeat(2, 1fr)" }} gap="2rem">
       <GridItem>
-        <Flex gap="2rem" flexDir="column">
+        <Flex gap="2rem" p="2" flexDir="column">
           {vacantes?.map((vacante) => {
             const {
               nombre,
@@ -61,7 +62,7 @@ export function VacanteBDT({ vacantes }) {
                 borderRadius="sm"
                 p="2"
                 transition="transform 0.3s"
-                _hover={{ transform: "scale(1.05)" }}
+                _hover={{ transform: "scale(0.95)" }}
               >
                 <CardHeader>
                   <Heading as="h3" size="md" p="0">
@@ -109,7 +110,9 @@ export function VacanteBDT({ vacantes }) {
           <DatosVacanteBDT vacante={vacanteSelected} />
         ) : (
           <SinVacantes hasButton={false}>
-            Selecciona una vacante para visualizar su información
+            <Text p="3" textAlign="justify">
+              Selecciona una vacante para visualizar su información
+            </Text>
           </SinVacantes>
         )}
       </GridItem>

@@ -10,7 +10,7 @@ import { useRegisterVacante } from '../hooks/useRegisterVacante'
 import { useSession } from '../hooks/useSession'
 import { useManageVacantes } from '../hooks/useManageVacantes'
 import { basicAlert } from '../utilities/Alerts'
-import { useEffect } from 'react'
+import { useEffect, useLayoutEffect } from 'react'
 import { DATOS_VACANTE_STATE_INITIAL } from '../constants/EstadosIniciales'
 import { useParams } from 'react-router-dom'
 import { useAlerts } from '../hooks/useAlerts'
@@ -27,7 +27,7 @@ export function FormVacanteEdit() {
     listVacante(id)
   }, [])
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!isVacanteLoaded) return
     setDatosVacante(vacante)
     console.log(vacante)
@@ -41,7 +41,7 @@ export function FormVacanteEdit() {
       return
     }
     updateVacante({ id, newVacante: datosVacante })
-    updateVacanteAlert({ id })
+    // updateVacanteAlert({ id })
     setDatosVacante(DATOS_VACANTE_STATE_INITIAL)
   }
 

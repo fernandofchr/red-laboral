@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { Header } from "../../components/Header";
 import {
   Box,
@@ -24,7 +24,7 @@ export function VacanteDatos() {
   const { id } = useParams();
   const { listVacante, vacante } = useManageVacantes();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     listVacante(id);
   }, []);
 

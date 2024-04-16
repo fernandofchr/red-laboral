@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import RegistrarBdt from '../../components/BDT/FormulariosResgitroBdt/RegistrarBdt'
 import { Navigate } from 'react-router-dom'
 import { useSession } from '../../hooks/useSession'
@@ -7,7 +7,7 @@ import Loading2 from '../../components/Loading2'
 function RegistroBdT() {
   const { dataSession, getDataSessionBDT, nombreGrupo } = useSession('trabajador')
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     getDataSessionBDT()
   }, [])
 

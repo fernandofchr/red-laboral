@@ -41,9 +41,9 @@
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
-        "mfaConfiguration": "OFF",
+        "mfaConfiguration": "ON",
         "mfaTypes": [
-          "SMS"
+          "TOTP"
         ],
         "passwordProtectionSettings": {
           "passwordPolicyCharacters": [
@@ -55,9 +55,7 @@
           "passwordPolicyMinLength": 8
         },
         "signupAttributes": [],
-        "socialProviders": [
-          "FACEBOOK"
-        ],
+        "socialProviders": [],
         "usernameAttributes": [
           "EMAIL"
         ],

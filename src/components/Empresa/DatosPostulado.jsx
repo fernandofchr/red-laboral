@@ -14,8 +14,8 @@ import { TagsDatosVacante } from "../Vacantes/TagsDatosVacante";
 
 export function DatosPostulado({ postulado }) {
   return (
-    <Flex justifyContent="center">
-      <Card boxShadow="2xl" h="40rem" overflowY="scroll">
+    <Flex justifyContent="cente">
+      <Card boxShadow="2xl" overflowY="scroll">
         <CardHeader>
           <Flex justifyContent="space-between">
             <Box>
@@ -36,7 +36,12 @@ export function DatosPostulado({ postulado }) {
                 Detalles del postulado
               </Heading>
               <Grid
-                templateColumns="repeat(2, 1fr)"
+                templateColumns={{
+                  base: "repeat(1, 1fr)",
+                  sm: "repeat(1, 1fr)",
+                  md: "repeat(2, 1fr)",
+                  lg: "repeat(2, 1fr)",
+                }}
                 columnGap="4rem"
                 rowGap="1rem"
               >

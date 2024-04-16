@@ -34,8 +34,8 @@ export function DatosVacanteBDT({ vacante }) {
     getBDTVacante();
   }, []);
   return (
-    <Flex justifyContent="center">
-      <Card boxShadow="2xl" h="40rem" overflowY="scroll">
+    <Flex justifyContent="center" p="2">
+      <Card boxShadow="2xl" h="72vh" overflowY="scroll">
         <CardHeader>
           <Flex justifyContent="space-between">
             <Box>

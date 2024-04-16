@@ -1,26 +1,24 @@
 import React, { useState } from "react";
 import { Auth } from "aws-amplify";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "@aws-amplify/ui-react/styles.css";
-import { Button, TextField } from '@mui/material';
-
-import {FormLabel, FormControl, Alert }from '@mui/material';
-import Checkbox from '@mui/material/Checkbox';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider,  } from '@mui/material/styles';
+import { Button, TextField } from "@mui/material";
+import { FormLabel, FormControl, Alert } from "@mui/material";
+import Typography from "@mui/material/Typography";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      <Link color="inherit" >
-        Red Laboral
-      </Link>{' / '}
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      <Link color="inherit">Red Laboral</Link>
+      {" / "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
@@ -28,7 +26,6 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 function CustomForgotPass() {
-
   const [username, setUsername] = useState("");
   const [code, setCode] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -58,9 +55,12 @@ function CustomForgotPass() {
   };
 
   const validatePassword = (value) => {
-    const passwordRegex = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[-_@$!%*#?&])[A-Za-z\d-_@$!%*#?&]{8,}$/;
+    const passwordRegex =
+      /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[-_@$!%*#?&])[A-Za-z\d-_@$!%*#?&]{8,}$/;
     if (!passwordRegex.test(value)) {
-      setPasswordErrorMessage("La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula, un número y un símbolo (- _ @ $ ! % * # ? &).");
+      setPasswordErrorMessage(
+        "La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula, un número y un símbolo (- _ @ $ ! % * # ? &)."
+      );
       setPasswordValid(false);
       return false;
     }
@@ -71,56 +71,110 @@ function CustomForgotPass() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-    <div>
-      {isPasswordReset ? (
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <h2 className='text-center'style={{ marginBottom: "2rem" }}>Contraseña restablecida correctamente.</h2>
-        </div>
-      ) : isCodeSent ? (
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <h2 className= 'text-center'style={{ marginBottom: "2rem" }}>Ingrese el código de verificación y su nueva contraseña.</h2>
-          <FormControl style={{ marginBottom: "1rem", width: "80%" }}>
-            <FormLabel>Código de verificación</FormLabel>
-            <TextField
-              variant="outlined"
-              type="number"
-              placeholder="Código de verificación"
-              value={code}
-              onChange={(e) => setCode(e.target.value)}/>
-          </FormControl>
-          <FormControl style={{ marginBottom: "1rem", width: "80%" }}>
-          <FormLabel>Ingrese nueva contraseña</FormLabel>
-            <TextField
-              variant="outlined"
-              type="password"
-              placeholder="Nueva contraseña"
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-              onBlur={() => validatePassword(newPassword)}/>
-          </FormControl>
+      <div>
+        {isPasswordReset ? (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <h2
+              className="text-center"
+              style={{ marginBottom: "2rem", color: "black" }}
+            >
+              Contraseña restablecida correctamente.
+            </h2>
+          </div>
+        ) : isCodeSent ? (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <h2
+              className="text-center"
+              style={{ marginBottom: "2rem", color: "black" }}
+            >
+              Ingrese el código de verificación y su nueva contraseña.
+            </h2>
+            <FormControl style={{ marginBottom: "1rem", width: "80%" }}>
+              <FormLabel>Código de verificación</FormLabel>
+              <TextField
+                variant="outlined"
+                type="number"
+                placeholder="Código de verificación"
+                value={code}
+                onChange={(e) => setCode(e.target.value)}
+              />
+            </FormControl>
+            <FormControl style={{ marginBottom: "1rem", width: "80%" }}>
+              <FormLabel>Ingrese nueva contraseña</FormLabel>
+              <TextField
+                variant="outlined"
+                type="password"
+                placeholder="Nueva contraseña"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                onBlur={() => validatePassword(newPassword)}
+              />
+            </FormControl>
 
-          {!passwordValid && (
-              <Alert severity="error" style={{ width: '80%' }}>{passwordErrorMessage}</Alert>
+            {!passwordValid && (
+              <Alert severity="error" style={{ width: "80%" }}>
+                {passwordErrorMessage}
+              </Alert>
             )}
 
-          <Button onClick={handleResetPassword} style={{ marginTop: '1.5rem', backgroundColor: 'blue', color: 'white', height: '60px' }}>Restablecer contraseña</Button>
-        </div>
-      ) : (
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <FormControl style={{ marginBottom: "1rem", width: "80%" }}>
-            <FormLabel>Telefono/Email</FormLabel>
-            <TextField
-              variant="outlined"
-              placeholder="Ingrese teléfono o correo"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required/>
-          </FormControl>
-          <Button onClick={handleSendCode} style={{ marginTop: '1.5rem', backgroundColor: 'blue', color: 'white', width: '80%', height: '60px' }}>Enviar código de verificación</Button>
-        </div>
-      )}
-    </div>
+            <Button
+              onClick={handleResetPassword}
+              style={{
+                marginTop: "1.5rem",
+                backgroundColor: "blue",
+                color: "white",
+                height: "60px",
+              }}
+            >
+              Restablecer contraseña
+            </Button>
+          </div>
+        ) : (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <FormControl style={{ marginBottom: "1rem", width: "80%" }}>
+              <FormLabel>Telefono/Email</FormLabel>
+              <TextField
+                variant="outlined"
+                placeholder="Ingrese teléfono o correo"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+            </FormControl>
+            <Button
+              onClick={handleSendCode}
+              style={{
+                marginTop: "1.5rem",
+                backgroundColor: "blue",
+                color: "white",
+                width: "80%",
+                height: "60px",
+              }}
+            >
+              Enviar código de verificación
+            </Button>
+          </div>
+        )}
+      </div>
     </ThemeProvider>
   );
 }
-export default CustomForgotPass
+export default CustomForgotPass;

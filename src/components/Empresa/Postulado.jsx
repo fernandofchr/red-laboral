@@ -39,9 +39,9 @@ export function Postulado({ postulados }) {
         lg: "repeat(2, 1fr)",
       }}
       gap="2rem"
-      p="2"
+      p="5"
     >
-      <GridItem>
+      <>
         <Flex gap="1rem" flexDir="column">
           {postulados?.map((postulado) => {
             const {
@@ -65,6 +65,13 @@ export function Postulado({ postulados }) {
                 cursor="pointer"
                 key={id}
                 borderRadius="sm"
+                width={{
+                  base: "repeat(1, 1fr)",
+                  sm: "repeat(1, 1fr)",
+                  xs: "21rem",
+                  md: "repeat(2, 1fr)",
+                  lg: "10rem",
+                }}
               >
                 <CardHeader>
                   <Heading as="h3" size="md">
@@ -107,7 +114,7 @@ export function Postulado({ postulados }) {
             );
           })}
         </Flex>
-      </GridItem>
+      </>
       <GridItem alignSelf="start">
         {isPostuladoSelected ? (
           <DatosPostulado postulado={postuladoSelected} />

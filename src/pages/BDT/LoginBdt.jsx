@@ -5,8 +5,8 @@ import { useSession } from '../../hooks/useSession'
 import Loading2 from '../../components/Loading2'
 import { useLayoutEffect } from 'react'
 import { withAuthenticator } from '@aws-amplify/ui-react'
-// import {  Authenticator, Heading, Image, View, Text, useTheme, } from "@aws-amplify/ui-react";
-// import Logo from '../../img/logo-sinfondo.png'
+import {  Authenticator, Heading, Image, View, Text, useTheme, } from "@aws-amplify/ui-react";
+import Logo from '../../img/logo-sinfondo.png'
 
 // import CustomSignUp from './CustomLogin/CustomSignUp'
 // import CustomSignIn from './CustomLogin/CustomSignIn'
@@ -22,6 +22,11 @@ I18n.putVocabularies({
   es: {
     'Sign In': 'Iniciar Sesión',
     'Sign Up': 'Regístrate',
+    'Please confirm your Password': 'Confirme su Contraseña',
+    'Reset Password': 'Recuperar Contraseña',
+    'Enter your email': 'Correo',
+    'Send code': 'Recuperar',
+    'Back to Sign In': 'Regresar a Inicio de Sesión',
   },
 });
 
@@ -30,9 +35,8 @@ function LoginBdt() {
 
   useLayoutEffect(() => {
     saveDataIntoGroupsBDT()
-    console.log(dataSession);
-    console.log(nombreGrupo);
   }, [])
+
   return (
     <div>
       <Loading2 />
@@ -41,124 +45,51 @@ function LoginBdt() {
   )
 }
 
-export default withAuthenticator(LoginBdt);
+export default function Authstart() {
+  const renderAuthenticator = () => {
+    const authenticatorConfig = {
+      formFields: {},
+      services: {},
+      initialState: "signUp",
+      components: {...components},
+    };
 
-// export default function Authstart() {
-//   const renderAuthenticator = () => {
-//     const authenticatorConfig = {
-//       formFields: {},
-//       services: {},
-//       initialState: "signUp",
-//       components: {
-//         ...components,
-//         SignIn: {
-//           Header() {
-//             return (
-//               <><div className="text-center">
-//                 <CustomSignIn />
-//               </div>
-//               </>
-//             );
-//           },
-//         },
-//         SignUp: {
-//           Header() {
-//             return (
-//               <>
-//               <Box p={5} alignItems={"center"}>
-//                 <CustomSignUp />
-//                 </Box>
-//               </>
-//             );
-//           },
-//         },
-//       },
-//     };
+    return (
+      <div className="no-email">
+        <Authenticator {...authenticatorConfig}>
+          <LoginBdt />
+        </Authenticator>
+      </div>
+    );
 
-//     return (
-//       <div className="no-email">
-//         <Authenticator {...authenticatorConfig}>
-//           <LoginBdt />
-//         </Authenticator>
-//       </div>
-//     );
+  }
 
-//   }
+  return <div>{renderAuthenticator()}</div>;
+}
 
-//   return <div>{renderAuthenticator()}</div>;
-// }
+const components = {
+  Header() {
+    const { tokens } = useTheme();
+    return (
+      <>
+        <View textAlign="center" padding={tokens.space.large}>
+          <a href="/" >
+            <Image alt="Coneecta logo"  className="home-page-link" src={Logo}  />
+          </a>
+        </View>
+        <>
+        </>
+      </>
+    );
+  },
+  Footer() {
+    const { tokens } = useTheme();
+    return (
+      <View textAlign="center" padding={tokens.space.large}>
+        <Text color={tokens.colors.neutral[80]}>&copy; Red Laboral</Text>
+      </View>
+    );
+  },
 
-// const components = {
-//   Header() {
-//     const { tokens } = useTheme();
-//     return (
-//       <>
-//         <View textAlign="center" padding={tokens.space.large}>
-//           <a href="/" >
-//             <Image alt="Coneecta logo"  className="home-page-link" src={Logo}  />
-//           </a>
-//         </View>
-//         <>
-//         </>
-//       </>
-//     );
-//   },
-
-//   Footer() {
-//     const { tokens } = useTheme();
-//     return (
-//       <View textAlign="center" padding={tokens.space.large}>
-//         <Text color={tokens.colors.neutral[80]}>&copy; Derechos reservados</Text>
-//       </View>
-//     );
-//   },
-
-
-//   ConfirmSignUp: {
-//     Header() {
-//       const { tokens } = useTheme();
-//       return (
-//         <>
-//           <Heading padding={`${tokens.space.xl} 0 0 ${tokens.space.xl}`} level={3}>
-//             Ingrese la información:
-//           </Heading>
-//         </>
-//       );
-//     },
-//     Footer() {
-//       return <Text></Text>;
-//     },
-//   },
-
-//   ResetPassword: {
-//     Header() {
-//       const { tokens } = useTheme();
-//       return (
-//         <>
-//         <Heading padding={`${tokens.space.xl} 0 0 ${tokens.space.xl}`} level={3}>
-//         Recuperar Contraseña
-//         </Heading>
-//         <CustomForgotPass />
-//         </>
-//       );
-//     },
-//     Footer() {
-//       return <Text></Text>;
-//     },
-//   },
-
-//   ConfirmResetPassword: {
-//     Header() {
-//       const { tokens } = useTheme();
-//       return (
-//         <Heading padding={`${tokens.space.xl} 0 0 ${tokens.space.xl}`} level={3}>
-//           Ingrese la información:
-//         </Heading>
-//       );
-//     },
-//     Footer() {
-//       return <Text></Text>;
-//     },
-//   },
-// };
+};
 

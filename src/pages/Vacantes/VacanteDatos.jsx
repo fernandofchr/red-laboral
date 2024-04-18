@@ -26,7 +26,7 @@ export function VacanteDatos() {
 
   useLayoutEffect(() => {
     listVacante(id);
-  }, []);
+  }, [vacante]);
 
   return (
     <Box>

@@ -30,7 +30,7 @@ code {
 
 .no-phone_number  .amplify-phonenumberfield{
 	display: none !important;
-  }
+  }*/
 
   .home-page-link {
 	transition: transform 0.3s ease; 
@@ -39,8 +39,8 @@ code {
   
   .home-page-link:hover {
 	transform: scale(1.1); 
-  } */
-  /* .home-page-link {
+  } 
+   .home-page-link {
     position: relative;
     display: inline-block;
   }
@@ -53,13 +53,13 @@ code {
     bottom: 0;
     z-index: -1;
     box-shadow: 4px 4px 8px rgba(2, 2, 2, 3); 
-  } */
+  } 
 
   /* .amplify-visually-hidden{
 	display: none !important;
   } */
 
-/*   
+  
   [data-amplify-authenticator] {
     --amplify-components-authenticator-router-box-shadow: 0 0 20px var(--amplify-colors-overlay-30);
     --amplify-components-authenticator-router-border-width: 0.3;
@@ -67,7 +67,7 @@ code {
     --amplify-components-tabs-item-active-border-color: var(--amplify-colors-red-100);
     --amplify-components-button-link-color: var(--amplify-colors-green-100);
     --amplify-components-tabs-item-color:var(--amplify-colors-red-100);
-  } */
+  } 
   
   /* .no-emai{
     background-color: black;

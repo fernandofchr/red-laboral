@@ -2,6 +2,7 @@ import { Button, ButtonGroup, Flex, Center } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha"; // Importa el componente de reCAPTCHA
 import { useState } from "react";
+import { red } from "@mui/material/colors";
 
 export function BotonesForm({
   botonCancelar = false,
@@ -39,7 +40,10 @@ export function BotonesForm({
             color="#fff"
             _hover={{ bg: "#ff964f" }}
             type="submit"
-            onClick={onClick}
+            onClick={() => {
+                      onClick();
+                      redirect();
+                  }}
           >
             Guardar
           </Button>

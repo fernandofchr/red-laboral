@@ -34,12 +34,13 @@ const EmpresaPerfil = ({ email, empresa, setEmpresa, userID }) => {
   const [isEditingPdf, setIsEditingPdf] = useState(false);
 
   useEffect(() => {
-    console.log(empresa);
+    
   }, [empresa]);
 
   const GuardarCambios = async () => {
     await updateEmpresa(originalEmpresa);
     setisEdit(false);
+    setEmpresa(originalEmpresa); 
   };
 
   return (

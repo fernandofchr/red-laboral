@@ -182,7 +182,7 @@ type EagerVacante = {
   readonly id: string;
   readonly nombre?: string | null;
   readonly descripcion?: string | null;
-  readonly numeroPlazas?: number | null;
+  readonly numeroPlazas?: string | null;
   readonly area?: string | null;
   readonly tipoContrato?: string | null;
   readonly modalidad?: string | null;
@@ -222,7 +222,7 @@ type LazyVacante = {
   readonly id: string;
   readonly nombre?: string | null;
   readonly descripcion?: string | null;
-  readonly numeroPlazas?: number | null;
+  readonly numeroPlazas?: string | null;
   readonly area?: string | null;
   readonly tipoContrato?: string | null;
   readonly modalidad?: string | null;

@@ -25,7 +25,7 @@ export declare type ValidationFunction<T> = (value: T, validationResponse: Valid
 export declare type VacanteUpdateFormInputValues = {
     nombre?: string;
     descripcion?: string;
-    numeroPlazas?: number;
+    numeroPlazas?: string;
     area?: string;
     tipoContrato?: string;
     modalidad?: string;
@@ -55,7 +55,7 @@ export declare type VacanteUpdateFormInputValues = {
 export declare type VacanteUpdateFormValidationValues = {
     nombre?: ValidationFunction<string>;
     descripcion?: ValidationFunction<string>;
-    numeroPlazas?: ValidationFunction<number>;
+    numeroPlazas?: ValidationFunction<string>;
     area?: ValidationFunction<string>;
     tipoContrato?: ValidationFunction<string>;
     modalidad?: ValidationFunction<string>;

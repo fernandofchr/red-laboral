@@ -586,7 +586,7 @@ export const schema = {
                 "numeroPlazas": {
                     "name": "numeroPlazas",
                     "isArray": false,
-                    "type": "Int",
+                    "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -1310,5 +1310,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.4",
-    "version": "1f3ac16e17a6259237973ddd38ac0cc3"
+    "version": "b968a19f6a91c19d22ed51f7d09e3f0a"
 };

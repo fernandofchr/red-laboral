@@ -23,7 +23,7 @@ export function MapaSitio() {
   return (
     <>
       <Header />
-      <BasicBreadcrumbs/>
+      <BasicBreadcrumbs />
       <Box p={5}>
         <Heading>Mapa del sitio</Heading>
         <SimpleGrid
@@ -86,7 +86,7 @@ export function MapaSitio() {
               <ListItem>
                 <Link to="/iniciop-bdt">
                   <Text fontSize={21} _hover={{ color: "#79f0f7" }}>
-                    Busadores de trabajo
+                    Buscadores de trabajo
                   </Text>
                 </Link>
               </ListItem>

@@ -139,9 +139,7 @@ useEffect(() => {
     try {
       const session = await Auth.currentSession();
       const userData = session.getIdToken().payload;
-      console.log(userData); 
-      const groupName = userData['cognito:groups'][0];
-      console.log(groupName);
+      const groupName = userData['cognito:groups'][0];      
       if (groupName === 'trabajador') {
         navigate('/inicio-bdt');
       }
@@ -183,7 +181,7 @@ useEffect(() => {
   }, []);
 
   useEffect(() => {
-    console.log(emprData);
+    
   }, [emprData]);
 
   if (!nombreGrupo) {
@@ -206,7 +204,7 @@ useEffect(() => {
                     email={email}
                     userID={user}
                     empresa={emprData}
-                    setEmpresa={emprData}
+                    setEmpresa={setEmprData}
                   />
                 </>
               ) : (

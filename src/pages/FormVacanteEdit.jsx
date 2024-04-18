@@ -35,7 +35,6 @@ export function FormVacanteEdit() {
   }, [isVacanteLoaded, vacante])
 
   const handleSubmitForm = e => {
-    e.preventDefault()
     if (somePropertyIsNull(datosVacante)) {
       basicAlert({ title: 'Error al guardar vacante', icon: 'error', text: 'No puede almacenar una vacante con campos vacíos.' })
       return

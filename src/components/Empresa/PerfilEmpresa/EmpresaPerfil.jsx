@@ -24,16 +24,20 @@ import { updateEmpresa } from "../../../hooks/EditarEmpresa";
 
 import UpdateInfoEmpresa from "./UpdateInfoEmpresa";
 import ViewVistaEmpresa from "./ViewVistaEmpresa";
+import Swal from "sweetalert2";
+import { deleteUserMail } from "../../../hooks/DeleteUsuario";
 
-// Otros imports que necesites
+
 
 const EmpresaPerfil = ({ email, empresa, setEmpresa, userID }) => {
   const [isEdit, setisEdit] = useState(false);
+  const navigate = useNavigate();
 
   const [originalEmpresa, setOriginalEmpresa] = useState(empresa);
   const [isEditingPdf, setIsEditingPdf] = useState(false);
 
   useEffect(() => {
+    console.log(userID);
     
   }, [empresa]);
 
@@ -41,6 +45,52 @@ const EmpresaPerfil = ({ email, empresa, setEmpresa, userID }) => {
     await updateEmpresa(originalEmpresa);
     setisEdit(false);
     setEmpresa(originalEmpresa); 
+  };
+
+  const eliminarPerfil = async () => {
+    try {
+      // Muestra un SweetAlert de confirmación
+      const result = await Swal.fire({
+        title: "¿Está seguro de que desea eliminar su cuenta?",
+        text: "Esta acción no se puede deshacer.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "red",
+        cancelButtonColor: "gray",
+        confirmButtonText: "Sí, estoy seguro",
+        cancelButtonText: "Cancelar",
+      });
+
+      if (result.isConfirmed) {
+        console.log("Usuario ID:", empresa.id);
+        try {
+          // Intenta eliminar el registro de DataStore
+          const empresaToDelete = await DataStore.query(Empresa, (c) =>
+            c.id.eq(empresa.id)
+          );
+          for (let emp of empresaToDelete) {
+            await DataStore.delete(Empresa, emp);
+          }
+
+          // Intenta eliminar el correo del usuario
+          await deleteUserMail(userID);
+
+          // Ambas operaciones se realizaron con éxito, puedes continuar
+          // sendBajaFisica(usuario, email);
+          navigate("/");
+          await DataStore.clear();
+          localStorage.clear();
+          sessionStorage.clear();
+          Swal.fire("¡Gracias!", "Tu perfil ha sido eliminado.", "success");
+        } catch (error) {
+          // Maneja errores de DataStore o deleteUserMail aquí.
+          console.error("Error al eliminar la cuenta:", error);
+        }
+      }
+    } catch (error) {
+      // Maneja errores de SweetAlert aquí.
+      console.error("Error:", error);
+    }
   };
 
   return (
@@ -81,8 +131,11 @@ const EmpresaPerfil = ({ email, empresa, setEmpresa, userID }) => {
               setDatosInfoEmpresa={setOriginalEmpresa}
             />
             <Flex justify="center">
-              <Button colorScheme="red" onClick={() => setisEdit(true)} m="2">
+              <Button colorScheme="blue" onClick={() => setisEdit(true)} m="2">
                 Editar
+              </Button>
+              <Button colorScheme="red" onClick={eliminarPerfil} m="2">
+                Eliminar 
               </Button>
             </Flex>
           </>

@@ -54,21 +54,26 @@ export function Vacante({ vacantes }) {
               </Heading>
             </CardHeader>
             <CardBody>
-              <Grid templateColumns="repeat(2, 1fr)">
+              <Grid
+                templateColumns={{
+                  base: "repeat(1, 1fr)",
+                }}
+                gap="1rem"
+              >
                 <GridItem>
-                  <Flex gap="1rem" alignItems="center">
+                  <Flex gap="1rem" alignItems="center" textAlign="justify">
                     <LiaAddressCardSolid />
                     {area}
                   </Flex>
                 </GridItem>
                 <GridItem>
-                  <Flex gap="1rem" alignItems="center">
+                  <Flex gap="1rem" alignItems="center" textAlign="justify">
                     <LiaCalendarCheckSolid />
                     {diasLaborales}
                   </Flex>
                 </GridItem>
                 <GridItem>
-                  <Flex gap="1rem" alignItems="center">
+                  <Flex gap="1rem" alignItems="center" textAlign="justify">
                     <LiaSchoolSolid />
                     {escolaridad}
                   </Flex>

@@ -47,7 +47,7 @@ export function FormVacante() {
   }, [groupName]);
 
   const handleSubmitForm = e => {
-    e.preventDefault()
+    // e.preventDefault()
     if (somePropertyIsNull(datosVacante)) {
       basicAlert({
         title: 'Error al guardar vacante',

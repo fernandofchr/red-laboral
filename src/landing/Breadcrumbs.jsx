@@ -26,7 +26,7 @@ export default function BasicBreadcrumbs() {
 
   useEffect(() => {
     console.log(pathnames[0]);
-  }, [pathnames]);
+  }, []);
 
   const handleBreadcrumbClick = (event, path) => {
     event.preventDefault();

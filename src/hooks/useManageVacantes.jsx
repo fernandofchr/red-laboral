@@ -58,7 +58,7 @@ export function useManageVacantes() {
     const vacante = new Vacante({
       nombre,
       descripcion,
-      numeroPlazas: parseInt(numeroPlazas),
+      numeroPlazas,
       area,
       tipoContrato,
       modalidad,

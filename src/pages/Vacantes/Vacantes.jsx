@@ -39,7 +39,7 @@ export function Vacantes() {
   useEffect(() => {
     if (isVacanteVisible) listVacantes({ emailEmpresa: dataSession.email });
     else listVacantesNoVisibles({ emailEmpresa: dataSession.email });
-  }, []);
+  }, [isVacanteVisible]);
 
 
   

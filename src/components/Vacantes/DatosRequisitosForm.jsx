@@ -119,7 +119,7 @@ export function DatosRequisitosForm() {
           </Select>
         </GridItem>
       </Grid>
-      <Flex
+      {/* <Flex
         gap="1rem"
         flexDirection={{ base: "column", sm: "column", md: "row" }}
       >
@@ -167,7 +167,7 @@ export function DatosRequisitosForm() {
           </Button>
         </Box>
       </Flex>
-      <Tags array={datosVacante.idiomaConNivel} arrayName="idiomaConNivel" />
+      <Tags array={datosVacante.idiomaConNivel} arrayName="idiomaConNivel" /> */}
     </Flex>
   );
 }
